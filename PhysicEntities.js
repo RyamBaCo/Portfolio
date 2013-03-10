@@ -22,7 +22,7 @@ Entity.build = function(id, def)
     else if (def.points)
         return new PolygonEntity(id, def.x, def.y, def.points);
 
-    return new RectangleEntity(id, def.x, def.y, def.halfWidth, def.halfHeight);
+    return new RectangleEntity(id, def.x, def.y, def.w, def.h);
 }
 
 function CircleEntity(id, x, y, radius) 
@@ -42,16 +42,14 @@ CircleEntity.prototype.draw = function(context)
     context.fill();
 }
 
-function RectangleEntity(id, x, y, halfWidth, halfHeight) 
+function RectangleEntity(id, x, y, w, h) 
 {
     Entity.call(this, id, x, y);
-    this.halfWidth = halfWidth;
-    this.halfHeight = halfHeight;
-    this.drawRect = 
-      [(x - this.halfWidth), (y - this.halfHeight), 
-      this.halfWidth * 2, this.halfHeight * 2,
-      -this.halfWidth, -this.halfHeight, 
-      this.halfWidth * 2, this.halfHeight * 2];
+    this.halfWidth = w / 2;
+    this.halfHeight = h / 2;
+    this.drawRect = [
+        (x - this.halfWidth), (y - this.halfHeight), parseInt(w), parseInt(h), 
+        -this.halfWidth, -this.halfHeight, parseInt(w), parseInt(h)];
 }
 RectangleEntity.prototype = new Entity();
 RectangleEntity.prototype.constructor = RectangleEntity;
