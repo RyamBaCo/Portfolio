@@ -39,7 +39,6 @@ CircleEntity.prototype.draw = function(context)
 {
     context.save();
     context.translate(this.x, this.y);
-    context.rotate(this.angle);
     context.drawImage(ringImage, -ringImageHalfWidth, -ringImageHalfHeight);
     context.restore();
 }

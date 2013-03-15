@@ -3,14 +3,34 @@ var   b2Vec2 = Box2D.Common.Math.b2Vec2,
       b2Body = Box2D.Dynamics.b2Body,
       b2FixtureDef = Box2D.Dynamics.b2FixtureDef,
       b2Fixture = Box2D.Dynamics.b2Fixture,
+      b2RevoluteJointDef = Box2D.Dynamics.Joints.b2RevoluteJointDef,
       b2World = Box2D.Dynamics.b2World,
       b2MassData = Box2D.Collision.Shapes.b2MassData,
       b2PolygonShape = Box2D.Collision.Shapes.b2PolygonShape,
-      b2RevoluteJointDef = Box2D.Dynamics.Joints.b2RevoluteJointDef,
       b2CircleShape = Box2D.Collision.Shapes.b2CircleShape,
-      b2DebugDraw = Box2D.Dynamics.b2DebugDraw;
+      b2Listener = Box2D.Dynamics.b2ContactListener;
 
 var letterJoints = [];
+var listener = new b2Listener;
+var world;
+
+listener.BeginContact = function(contact) 
+{
+    userData1 = parseInt(contact.GetFixtureA().GetBody().GetUserData());
+    userData2 = parseInt(contact.GetFixtureB().GetBody().GetUserData());
+
+    // collision with ring
+    if(userData1 < numberOfRings || userData2 < numberOfRings)
+    {
+        jointId = Math.max(userData1, userData2);
+
+        if(letterJoints[jointId])
+        {
+            world.DestroyJoint(letterJoints[jointId]);
+            delete letterJoints[jointId];
+        }
+    }
+}
 
 function PhysicWorld(intervalRate, adaptive, width, height, scale) 
 {
@@ -20,7 +40,7 @@ function PhysicWorld(intervalRate, adaptive, width, height, scale)
     this.height = height;
     this.scale = scale;
 
-    this.world = new b2World(new b2Vec2(0, 10), true);
+    world = new b2World(new b2Vec2(0, 10), true);
 
     this.fixDef = new b2FixtureDef;
     this.fixDef.density = 1.0;
@@ -40,21 +60,23 @@ function PhysicWorld(intervalRate, adaptive, width, height, scale)
 
     // half width, half height. eg actual height here is 1 unit
     this.fixDef.shape.SetAsBox((this.width- (this.width * 0.1) / this.scale) / 2, (10 / this.scale) / 2);
-    this.world.CreateBody(this.bodyDef).CreateFixture(this.fixDef);
+    world.CreateBody(this.bodyDef).CreateFixture(this.fixDef);
+
+    world.SetContactListener(listener);
 }
 
 PhysicWorld.prototype.update = function() 
 {
     var start = Date.now();
     var stepRate = (this.adaptive) ? (now - this.lastTimestamp) / 1000 : (1 / this.intervalRate);
-    this.world.Step(stepRate, 5, 5);
-    this.world.ClearForces();
+    world.Step(stepRate, 5, 5);
+    world.ClearForces();
     return (Date.now() - start);
 }
 
 PhysicWorld.prototype.updateBodies = function(bodies) 
 {
-    for (var currentBody = this.world.GetBodyList(); currentBody; currentBody = currentBody.m_next) 
+    for (var currentBody = world.GetBodyList(); currentBody; currentBody = currentBody.m_next) 
     {
         if (currentBody.IsActive() && typeof currentBody.GetUserData() !== 'undefined' && currentBody.GetUserData() != null) 
             bodies[currentBody.GetUserData()].update(
@@ -99,17 +121,17 @@ PhysicWorld.prototype.setBodies = function(bodies)
         this.bodyDef.position.y = entity.y / this.scale;
         this.bodyDef.userData = entity.id;
 
-        newLetter = this.world.CreateBody(this.bodyDef);
+        newLetter = world.CreateBody(this.bodyDef);
         newLetter.CreateFixture(this.fixDef);
 
         if(entity.radius == null)
         {
             letterJointDef = new b2RevoluteJointDef();
-            letterJointDef.Initialize(newLetter, this.world.GetGroundBody(), newLetter.GetWorldCenter());
+            letterJointDef.Initialize(newLetter, world.GetGroundBody(), newLetter.GetWorldCenter());
             letterJointDef.lowerAngle = 0;
             letterJointDef.upperAngle = 0;
             letterJointDef.enableLimit = true;
-            letterJoints[entity.id] = this.world.CreateJoint(letterJointDef);
+            letterJoints[entity.id] = world.CreateJoint(letterJointDef);
         }
     }
 }
