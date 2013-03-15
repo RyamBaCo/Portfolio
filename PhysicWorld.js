@@ -6,8 +6,11 @@ var   b2Vec2 = Box2D.Common.Math.b2Vec2,
       b2World = Box2D.Dynamics.b2World,
       b2MassData = Box2D.Collision.Shapes.b2MassData,
       b2PolygonShape = Box2D.Collision.Shapes.b2PolygonShape,
+      b2RevoluteJointDef = Box2D.Dynamics.Joints.b2RevoluteJointDef,
       b2CircleShape = Box2D.Collision.Shapes.b2CircleShape,
       b2DebugDraw = Box2D.Dynamics.b2DebugDraw;
+
+var letterJoints = [];
 
 function PhysicWorld(intervalRate, adaptive, width, height, scale) 
 {
@@ -49,27 +52,27 @@ PhysicWorld.prototype.update = function()
     return (Date.now() - start);
 }
 
-PhysicWorld.prototype.updateLetters = function(letters) 
+PhysicWorld.prototype.updateBodies = function(bodies) 
 {
-    for (var b = this.world.GetBodyList(); b; b = b.m_next) 
+    for (var currentBody = this.world.GetBodyList(); currentBody; currentBody = currentBody.m_next) 
     {
-        if (b.IsActive() && typeof b.GetUserData() !== 'undefined' && b.GetUserData() != null) 
-            letters[b.GetUserData()].update(
+        if (currentBody.IsActive() && typeof currentBody.GetUserData() !== 'undefined' && currentBody.GetUserData() != null) 
+            bodies[currentBody.GetUserData()].update(
               { 
-                  x: b.GetPosition().x * this.scale, 
-                  y: b.GetPosition().y * this.scale, 
-                  a: b.GetAngle(), 
-                  c: {x: b.GetWorldCenter().x * this.scale, y: b.GetWorldCenter().y * this.scale
+                  x: currentBody.GetPosition().x * this.scale, 
+                  y: currentBody.GetPosition().y * this.scale, 
+                  a: currentBody.GetAngle(), 
+                  c: {x: currentBody.GetWorldCenter().x * this.scale, y: currentBody.GetWorldCenter().y * this.scale
               }});
     }
 }
 
-PhysicWorld.prototype.setLetters = function(letters) 
+PhysicWorld.prototype.setBodies = function(bodies) 
 {
     this.bodyDef.type = b2Body.b2_dynamicBody;
-    for(var i in letters) 
+    for(var i in bodies) 
     {
-        var entity = letters[i];
+        var entity = bodies[i];
         if (entity.radius)
             this.fixDef.shape = new b2CircleShape(entity.radius / this.scale);
         else if (entity.points) 
@@ -93,6 +96,15 @@ PhysicWorld.prototype.setLetters = function(letters)
         this.bodyDef.position.x = entity.x / this.scale;
         this.bodyDef.position.y = entity.y / this.scale;
         this.bodyDef.userData = entity.id;
-        this.world.CreateBody(this.bodyDef).CreateFixture(this.fixDef);
+
+        newLetter = this.world.CreateBody(this.bodyDef);
+        newLetter.CreateFixture(this.fixDef);
+
+        letterJointDef = new b2RevoluteJointDef();
+        letterJointDef.Initialize(newLetter, this.world.GetGroundBody(), newLetter.GetWorldCenter());
+        letterJointDef.lowerAngle = 0;
+        letterJointDef.upperAngle = 0;
+        letterJointDef.enableLimit = true;
+        letterJoints[entity.id] = this.world.CreateJoint(letterJointDef);
     }
 }

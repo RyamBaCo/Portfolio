@@ -16,19 +16,26 @@ var canvasWidth = context.canvas.width;
 var canvasHeight = context.canvas.height;
 
 var SCALE = 30;
-var letters = null;
+var bodies = null;
 var physicWorld = null;
+var backImage = null;
 var letterImage = null;
+var ringImage = null;
 
 $(document).ready(function()
 {
-    letters = new Array();
+    bodies = new Array();
+
     letterImage = new Image();
     letterImage.src = "letters.png";
+    backImage = new Image();
+    backImage.src = "back.jpg";
+    ringImage = new Image();
+    ringImage.src = "ring.png";
 
     $.ajax(
     {
-        url: "letters.json", 
+        url: "bodies.json", 
         dataType: 'json'
     }).done(function(data) 
     {
@@ -39,10 +46,10 @@ $(document).ready(function()
 function initLetters(jsonData) 
 { 
     for(var i in jsonData) 
-        letters[i] = Entity.build(i, jsonData[i]);
+        bodies[i] = Entity.build(i, jsonData[i]);
     
     physicWorld = new PhysicWorld(60, false, canvasWidth, canvasHeight, SCALE);
-    physicWorld.setLetters(letters);
+    physicWorld.setBodies(bodies);
 
     (function loop(animStart) 
     {
@@ -55,13 +62,14 @@ function initLetters(jsonData)
 function update(animStart) 
 {
     physicWorld.update();
-    physicWorld.updateLetters(letters);
+    physicWorld.updateBodies(bodies);
 }
 
 function draw() 
 {
     context.fillStyle = '#000000';
     context.fillRect(0, 0, canvasWidth, canvasHeight);
-    for (var i in letters) 
-        letters[i].draw(context);
+    context.drawImage(backImage, 0, 0);
+    for (var i in bodies) 
+        bodies[i].draw(context);
 }
