@@ -18,24 +18,24 @@ Entity.prototype.update = function(body)
 Entity.build = function(id, def) 
 {
     if (def.r) 
-        return new CircleEntity(id, def.x, def.y, def.r);
+        return new RingEntity(id, def.x, def.y, def.r);
     else if (def.points)
         return new PolygonEntity(id, def.x, def.y, def.points);
 
-    return new RectangleEntity(id, def.x, def.y, def.w, def.h);
+    return new LetterEntity(id, def.x, def.y, def.w, def.h);
 }
 
-function CircleEntity(id, x, y, radius) 
+function RingEntity(id, x, y, radius) 
 {
     Entity.call(this, id, x, y);
     this.radius = radius;
 
     numberOfRings += 1;
 }
-CircleEntity.prototype = new Entity();
-CircleEntity.prototype.constructor = CircleEntity;
+RingEntity.prototype = new Entity();
+RingEntity.prototype.constructor = RingEntity;
 
-CircleEntity.prototype.draw = function(context) 
+RingEntity.prototype.draw = function(context) 
 {
     context.save();
     context.translate(this.x, this.y);
@@ -43,7 +43,7 @@ CircleEntity.prototype.draw = function(context)
     context.restore();
 }
 
-function RectangleEntity(id, x, y, width, height) 
+function LetterEntity(id, x, y, width, height) 
 {
     Entity.call(this, id, x, y);
     this.halfWidth = width / 2;
@@ -52,10 +52,10 @@ function RectangleEntity(id, x, y, width, height)
         (x - this.halfWidth), (y - this.halfHeight), parseInt(width), parseInt(height), 
         -this.halfWidth, -this.halfHeight, parseInt(width), parseInt(height)];
 }
-RectangleEntity.prototype = new Entity();
-RectangleEntity.prototype.constructor = RectangleEntity;
+LetterEntity.prototype = new Entity();
+LetterEntity.prototype.constructor = LetterEntity;
 
-RectangleEntity.prototype.draw = function(context) 
+LetterEntity.prototype.draw = function(context) 
 {
     context.save();
     context.translate(this.x, this.y);
