@@ -17,8 +17,8 @@ Entity.prototype.update = function(body)
 
 Entity.build = function(id, def) 
 {
-    if (def.radius) 
-        return new CircleEntity(id, def.x, def.y, def.radius);
+    if (def.r) 
+        return new CircleEntity(id, def.x, def.y, def.r);
     else if (def.points)
         return new PolygonEntity(id, def.x, def.y, def.points);
 
@@ -29,27 +29,29 @@ function CircleEntity(id, x, y, radius)
 {
     Entity.call(this, id, x, y);
     this.radius = radius;
+
+    numberOfRings += 1;
 }
 CircleEntity.prototype = new Entity();
 CircleEntity.prototype.constructor = CircleEntity;
 
 CircleEntity.prototype.draw = function(context) 
 {
-    context.fillStyle = 'blue';
-    context.beginPath();
-    context.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
-    context.closePath();
-    context.fill();
+    context.save();
+    context.translate(this.x, this.y);
+    context.rotate(this.angle);
+    context.drawImage(ringImage, -ringImageHalfWidth, -ringImageHalfHeight);
+    context.restore();
 }
 
-function RectangleEntity(id, x, y, w, h) 
+function RectangleEntity(id, x, y, width, height) 
 {
     Entity.call(this, id, x, y);
-    this.halfWidth = w / 2;
-    this.halfHeight = h / 2;
+    this.halfWidth = width / 2;
+    this.halfHeight = height / 2;
     this.drawRect = [
-        (x - this.halfWidth), (y - this.halfHeight), parseInt(w), parseInt(h), 
-        -this.halfWidth, -this.halfHeight, parseInt(w), parseInt(h)];
+        (x - this.halfWidth), (y - this.halfHeight), parseInt(width), parseInt(height), 
+        -this.halfWidth, -this.halfHeight, parseInt(width), parseInt(height)];
 }
 RectangleEntity.prototype = new Entity();
 RectangleEntity.prototype.constructor = RectangleEntity;

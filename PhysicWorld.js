@@ -70,9 +70,11 @@ PhysicWorld.prototype.updateBodies = function(bodies)
 PhysicWorld.prototype.setBodies = function(bodies) 
 {
     this.bodyDef.type = b2Body.b2_dynamicBody;
+
     for(var i in bodies) 
     {
         var entity = bodies[i];
+
         if (entity.radius)
             this.fixDef.shape = new b2CircleShape(entity.radius / this.scale);
         else if (entity.points) 
@@ -100,11 +102,14 @@ PhysicWorld.prototype.setBodies = function(bodies)
         newLetter = this.world.CreateBody(this.bodyDef);
         newLetter.CreateFixture(this.fixDef);
 
-        letterJointDef = new b2RevoluteJointDef();
-        letterJointDef.Initialize(newLetter, this.world.GetGroundBody(), newLetter.GetWorldCenter());
-        letterJointDef.lowerAngle = 0;
-        letterJointDef.upperAngle = 0;
-        letterJointDef.enableLimit = true;
-        letterJoints[entity.id] = this.world.CreateJoint(letterJointDef);
+        if(entity.radius == null)
+        {
+            letterJointDef = new b2RevoluteJointDef();
+            letterJointDef.Initialize(newLetter, this.world.GetGroundBody(), newLetter.GetWorldCenter());
+            letterJointDef.lowerAngle = 0;
+            letterJointDef.upperAngle = 0;
+            letterJointDef.enableLimit = true;
+            letterJoints[entity.id] = this.world.CreateJoint(letterJointDef);
+        }
     }
 }
