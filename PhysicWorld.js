@@ -49,12 +49,12 @@ PhysicWorld.prototype.update = function()
     return (Date.now() - start);
 }
 
-PhysicWorld.prototype.updateBodies = function(bodies) 
+PhysicWorld.prototype.updateLetters = function(letters) 
 {
     for (var b = this.world.GetBodyList(); b; b = b.m_next) 
     {
         if (b.IsActive() && typeof b.GetUserData() !== 'undefined' && b.GetUserData() != null) 
-            bodies[b.GetUserData()].update(
+            letters[b.GetUserData()].update(
               { 
                   x: b.GetPosition().x * this.scale, 
                   y: b.GetPosition().y * this.scale, 
@@ -64,12 +64,12 @@ PhysicWorld.prototype.updateBodies = function(bodies)
     }
 }
 
-PhysicWorld.prototype.setBodies = function(bodyEntities) 
+PhysicWorld.prototype.setLetters = function(letters) 
 {
     this.bodyDef.type = b2Body.b2_dynamicBody;
-    for(var i in bodyEntities) 
+    for(var i in letters) 
     {
-        var entity = bodyEntities[i];
+        var entity = letters[i];
         if (entity.radius)
             this.fixDef.shape = new b2CircleShape(entity.radius / this.scale);
         else if (entity.points) 

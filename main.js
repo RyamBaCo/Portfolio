@@ -16,13 +16,13 @@ var canvasWidth = context.canvas.width;
 var canvasHeight = context.canvas.height;
 
 var SCALE = 30;
-var bodies = null;
+var letters = null;
 var physicWorld = null;
 var letterImage = null;
 
 $(document).ready(function()
 {
-    bodies = new Array();
+    letters = new Array();
     letterImage = new Image();
     letterImage.src = "letters.png";
 
@@ -32,19 +32,17 @@ $(document).ready(function()
         dataType: 'json'
     }).done(function(data) 
     {
-        initBodies(data);
+        initLetters(data);
     });
 });
                     
-function initBodies(jsonData) 
+function initLetters(jsonData) 
 { 
     for(var i in jsonData) 
-    {
-        bodies[i] = Entity.build(i, jsonData[i]);
-    }
+        letters[i] = Entity.build(i, jsonData[i]);
     
     physicWorld = new PhysicWorld(60, false, canvasWidth, canvasHeight, SCALE);
-    physicWorld.setBodies(bodies);
+    physicWorld.setLetters(letters);
 
     (function loop(animStart) 
     {
@@ -57,16 +55,13 @@ function initBodies(jsonData)
 function update(animStart) 
 {
     physicWorld.update();
-    physicWorld.updateBodies(bodies);
+    physicWorld.updateLetters(letters);
 }
 
 function draw() 
 {
     context.fillStyle = '#000000';
     context.fillRect(0, 0, canvasWidth, canvasHeight);
-    for (var i in bodies) 
-    {
-        var entity = bodies[i];
-        entity.draw(context);
-    }
+    for (var i in letters) 
+        letters[i].draw(context);
 }
