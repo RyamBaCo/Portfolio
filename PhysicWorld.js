@@ -118,7 +118,7 @@ PhysicWorld.prototype.updateJointAtMouse = function(mousePosition)
                 mouseJointDef.bodyB = ringBodies[i];
                 mouseJointDef.target.Set(mousePosition.x / this.scale, mousePosition.y / this.scale);
                 mouseJointDef.collideConnected = true;
-                mouseJointDef.maxForce = 30;
+                mouseJointDef.maxForce = 500.0 * ringBodies[i].GetMass();
                 mouseJoint = world.CreateJoint(mouseJointDef);
                 ringBodies[i].SetAwake(true);
             }
