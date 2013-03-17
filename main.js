@@ -53,16 +53,30 @@ $(document).ready(function()
     });
 });
 
-$(document).mousemove(function(e)
+// interaction events
+$(function() 
 {
-    // left mousebutton down
-    if(e.which == 1)
-        physicWorld.updateJointAtMouse({x: e.pageX, y: e.pageY});
-});
+    var leftButtonDown = false;
+    $(document).mousemove(function(e)
+    {
+        if(leftButtonDown)
+            physicWorld.updateJointAtMouse({x: e.pageX, y: e.pageY});
+    });
 
-$(document).mouseup(function() 
-{
-    physicWorld.removeJointAtMouse();
+    $(document).mousedown(function(e) 
+    {
+        if(e.which === 1)
+            leftButtonDown = true;
+    });
+
+    $(document).mouseup(function(e) 
+    {
+        if(e.which === 1)
+        {
+            leftButtonDown = false;
+            physicWorld.removeJointAtMouse();
+        }
+    });
 });
                     
 function initBodies(jsonData) 
