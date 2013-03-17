@@ -116,7 +116,7 @@ PhysicWorld.prototype.updateJointAtMouse = function(mousePosition)
                 var mouseJointDef = new b2MouseJointDef;
                 mouseJointDef.bodyA = world.GetGroundBody();
                 mouseJointDef.bodyB = ringBodies[i];
-                mouseJointDef.target.Set(mousePosition.x, mousePosition.y);
+                mouseJointDef.target.Set(mousePosition.x / this.scale, mousePosition.y / this.scale);
                 mouseJointDef.collideConnected = true;
                 mouseJointDef.maxForce = 30;
                 mouseJoint = world.CreateJoint(mouseJointDef);
@@ -128,7 +128,10 @@ PhysicWorld.prototype.updateJointAtMouse = function(mousePosition)
     }
 
     if(mouseJoint)
-        mouseJoint.SetTarget(new b2Vec2(mousePosition.x, mousePosition.y));
+    {
+        mouseJoint.SetTarget(new b2Vec2(mousePosition.x / this.scale, mousePosition.y / this.scale));
+        console.log("update joint: " + mousePosition.x)
+        }
 }
 
 PhysicWorld.prototype.removeJointAtMouse = function()
@@ -182,12 +185,12 @@ PhysicWorld.prototype.setBodies = function(bodies)
         letterJoints[entity.id] = world.CreateJoint(letterJointDef);
 
         if(entity.radius == null)
-            newBody.CreateFixture(this.fixDef, 0.5);
+            newBody.CreateFixture(this.fixDef);//, 0.5);
 
         // higher density for ring
         else
         {
-            newBody.CreateFixture(this.fixDef, 3);
+            newBody.CreateFixture(this.fixDef);//, 3);
             ringBodies[entity.id] = newBody;
         }
     }
