@@ -12,6 +12,10 @@ var   b2Vec2 = Box2D.Common.Math.b2Vec2,
       b2CircleShape = Box2D.Collision.Shapes.b2CircleShape,
       b2Listener = Box2D.Dynamics.b2ContactListener;
 
+var CATEGORY_FRAME = 0x0001;
+var CATEGORY_RING = 0x0002;
+var CATEGORY_LETTER = 0x0004;
+
 var letterJoints = [];
 var ringBodies = [];
 var mouseJoint;
@@ -53,17 +57,28 @@ function PhysicWorld(intervalRate, adaptive, width, height, scale)
 
     this.bodyDef = new b2BodyDef;
 
-    //create ground
+    this.fixDef.filter.categoryBits = CATEGORY_FRAME; 
+
+    // ground
     this.bodyDef.type = b2Body.b2_staticBody;
-
-    // positions the center of the object (not upper left!)
-    this.bodyDef.position.x = this.width / 2 / this.scale;
-    this.bodyDef.position.y = this.height / this.scale;
-
+    this.bodyDef.position.x = (this.width / 2) / this.scale;
+    this.bodyDef.position.y = (this.height + 5) / this.scale;
     this.fixDef.shape = new b2PolygonShape;
+    this.fixDef.shape.SetAsBox((this.width / this.scale) / 2, 5 / this.scale);
+    world.CreateBody(this.bodyDef).CreateFixture(this.fixDef);
 
-    // half width, half height. eg actual height here is 1 unit
-    this.fixDef.shape.SetAsBox((this.width- (this.width * 0.1) / this.scale) / 2, (10 / this.scale) / 2);
+    // top
+    this.bodyDef.position.y = -5 / this.scale;
+    world.CreateBody(this.bodyDef).CreateFixture(this.fixDef);
+
+    // left
+    this.bodyDef.position.x = -5 / this.scale;
+    this.bodyDef.position.y = (this.height / 2) / this.scale;
+    this.fixDef.shape.SetAsBox(5 / this.scale, (this.height / this.scale) / 2);
+    world.CreateBody(this.bodyDef).CreateFixture(this.fixDef);
+
+    // right
+    this.bodyDef.position.x = (this.width + 5) / this.scale;
     world.CreateBody(this.bodyDef).CreateFixture(this.fixDef);
 
     world.SetContactListener(listener);
@@ -128,10 +143,7 @@ PhysicWorld.prototype.updateJointAtMouse = function(mousePosition)
     }
 
     if(mouseJoint)
-    {
         mouseJoint.SetTarget(new b2Vec2(mousePosition.x / this.scale, mousePosition.y / this.scale));
-        console.log("update joint: " + mousePosition.x)
-        }
 }
 
 PhysicWorld.prototype.removeJointAtMouse = function()
@@ -184,13 +196,20 @@ PhysicWorld.prototype.setBodies = function(bodies)
         letterJointDef.enableLimit = true;
         letterJoints[entity.id] = world.CreateJoint(letterJointDef);
 
+        // letter
         if(entity.radius == null)
-            newBody.CreateFixture(this.fixDef);//, 0.5);
+        {
+            this.fixDef.filter.categoryBits = CATEGORY_LETTER;
+            this.fixDef.filter.maskBits = CATEGORY_LETTER | CATEGORY_RING;
+            newBody.CreateFixture(this.fixDef);
+        }
 
-        // higher density for ring
+        // ring
         else
         {
-            newBody.CreateFixture(this.fixDef);//, 3);
+            this.fixDef.filter.categoryBits = CATEGORY_RING;
+            this.fixDef.filter.maskBits = CATEGORY_LETTER | CATEGORY_FRAME;
+            newBody.CreateFixture(this.fixDef);
             ringBodies[entity.id] = newBody;
         }
     }
