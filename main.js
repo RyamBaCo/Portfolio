@@ -33,7 +33,7 @@ $(document).ready(function()
     letterImage = new Image();
     letterImage.src = "letters.png";
     backImage = new Image();
-    backImage.src = "back.jpg";
+    backImage.src = "back.png";
     ringImage = new Image();
     ringImage.src = "ring.png";
 
