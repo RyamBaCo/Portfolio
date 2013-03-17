@@ -29,6 +29,7 @@ function RingEntity(id, x, y, radius)
 {
     Entity.call(this, id, x, y);
     this.radius = radius;
+    this.radiusSquared = radius * radius;
 
     numberOfRings += 1;
 }

@@ -52,6 +52,18 @@ $(document).ready(function()
         initBodies(data);
     });
 });
+
+$(document).mousemove(function(e)
+{
+    // left mousebutton down
+    if(e.which == 1)
+        physicWorld.updateJointAtMouse({x: e.pageX, y: e.pageY});
+});
+
+$(document).mouseup(function() 
+{
+    physicWorld.removeJointAtMouse();
+});
                     
 function initBodies(jsonData) 
 { 
@@ -90,11 +102,12 @@ function drawBlackSquares()
 
     if(numberOfRings == 1)
     {
+        // (make all rectangles 2 pixel larger in size because of float/int inaccuracy)
         // left (aligned to ring)
-        context.fillRect(0, bodies[0].y - ringImageHalfHeight, bodies[0].x - ringImageHalfWidth, ringImage.height);
+        context.fillRect(0, bodies[0].y - ringImageHalfHeight, bodies[0].x - ringImageHalfWidth + 2, ringImage.height);
         // right
-        context.fillRect(bodies[0].x + ringImageHalfWidth, bodies[0].y - ringImageHalfHeight, canvasWidth - (bodies[0].x + ringImageHalfWidth), ringImage.height);
-        // top (make rectangle 2 pixel larger in height because of float/int inaccuracy)
+        context.fillRect(bodies[0].x + ringImageHalfWidth - 2, bodies[0].y - ringImageHalfHeight, canvasWidth - (bodies[0].x + ringImageHalfWidth) + 2, ringImage.height);
+        // top
         context.fillRect(0, 0, canvasWidth, bodies[0].y - ringImageHalfHeight + 2);
         // bottom
         context.fillRect(0, bodies[0].y + ringImageHalfHeight - 2, canvasWidth, canvasHeight - (bodies[0].y + ringImageHalfHeight) + 2);

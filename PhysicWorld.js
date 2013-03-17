@@ -1,9 +1,11 @@
 var   b2Vec2 = Box2D.Common.Math.b2Vec2,
+      b2AABB = Box2D.Collision.b2AABB,
       b2BodyDef = Box2D.Dynamics.b2BodyDef,
       b2Body = Box2D.Dynamics.b2Body,
       b2FixtureDef = Box2D.Dynamics.b2FixtureDef,
       b2Fixture = Box2D.Dynamics.b2Fixture,
       b2RevoluteJointDef = Box2D.Dynamics.Joints.b2RevoluteJointDef,
+      b2MouseJointDef =  Box2D.Dynamics.Joints.b2MouseJointDef,
       b2World = Box2D.Dynamics.b2World,
       b2MassData = Box2D.Collision.Shapes.b2MassData,
       b2PolygonShape = Box2D.Collision.Shapes.b2PolygonShape,
@@ -11,6 +13,8 @@ var   b2Vec2 = Box2D.Common.Math.b2Vec2,
       b2Listener = Box2D.Dynamics.b2ContactListener;
 
 var letterJoints = [];
+var ringBodies = [];
+var mouseJoint;
 var listener = new b2Listener;
 var world;
 
@@ -89,6 +93,53 @@ PhysicWorld.prototype.updateBodies = function(bodies)
     }
 }
 
+PhysicWorld.prototype.updateJointAtMouse = function(mousePosition) 
+{
+    for(var i in bodies) 
+    {
+        if(i >= numberOfRings)
+            break;
+
+        var entity = bodies[i];
+        var translatedPosition = new b2Vec2(mousePosition.x - bodies[i].x, mousePosition.y - bodies[i].y);
+
+        if(translatedPosition.LengthSquared() <= bodies[i].radiusSquared)
+        {
+            if(letterJoints[i])
+            {
+                world.DestroyJoint(letterJoints[i]);
+                delete letterJoints[i];
+            }
+
+            if(!mouseJoint)
+            {
+                var mouseJointDef = new b2MouseJointDef;
+                mouseJointDef.bodyA = world.GetGroundBody();
+                mouseJointDef.bodyB = ringBodies[i];
+                mouseJointDef.target.Set(mousePosition.x, mousePosition.y);
+                mouseJointDef.collideConnected = true;
+                mouseJointDef.maxForce = 30;
+                mouseJoint = world.CreateJoint(mouseJointDef);
+                ringBodies[i].SetAwake(true);
+            }
+
+            break;
+        }
+    }
+
+    if(mouseJoint)
+        mouseJoint.SetTarget(new b2Vec2(mousePosition.x, mousePosition.y));
+}
+
+PhysicWorld.prototype.removeJointAtMouse = function()
+{
+    if(mouseJoint)
+    {
+        world.DestroyJoint(mouseJoint);
+        mouseJoint = null;
+    }
+} 
+
 PhysicWorld.prototype.setBodies = function(bodies) 
 {
     this.bodyDef.type = b2Body.b2_dynamicBody;
@@ -121,17 +172,23 @@ PhysicWorld.prototype.setBodies = function(bodies)
         this.bodyDef.position.y = entity.y / this.scale;
         this.bodyDef.userData = entity.id;
 
-        newLetter = world.CreateBody(this.bodyDef);
-        newLetter.CreateFixture(this.fixDef);
+        newBody = world.CreateBody(this.bodyDef);
+
+        letterJointDef = new b2RevoluteJointDef();
+        letterJointDef.Initialize(newBody, world.GetGroundBody(), newBody.GetWorldCenter());
+        letterJointDef.lowerAngle = 0;
+        letterJointDef.upperAngle = 0;
+        letterJointDef.enableLimit = true;
+        letterJoints[entity.id] = world.CreateJoint(letterJointDef);
 
         if(entity.radius == null)
+            newBody.CreateFixture(this.fixDef, 0.5);
+
+        // higher density for ring
+        else
         {
-            letterJointDef = new b2RevoluteJointDef();
-            letterJointDef.Initialize(newLetter, world.GetGroundBody(), newLetter.GetWorldCenter());
-            letterJointDef.lowerAngle = 0;
-            letterJointDef.upperAngle = 0;
-            letterJointDef.enableLimit = true;
-            letterJoints[entity.id] = world.CreateJoint(letterJointDef);
+            newBody.CreateFixture(this.fixDef, 3);
+            ringBodies[entity.id] = newBody;
         }
     }
 }
