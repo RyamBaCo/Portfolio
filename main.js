@@ -45,7 +45,7 @@ $(document).ready(function()
 
     $.ajax(
     {
-        url: "bodies.json", 
+        url: 'bodies.json', 
         dataType: 'json'
     }).done(function(data) 
     {
@@ -63,20 +63,46 @@ $(function()
             physicWorld.updateJointAtMouse({x: e.pageX, y: e.pageY});
     });
 
+    $(document).bind('touchmove', function(e)
+    {
+        // see http://www.devinrolsen.com/basic-jquery-touchmove-event-setup/
+        e.preventDefault();
+        var touch = e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];
+        var elm = $(this).offset();
+        var x = touch.pageX - elm.left;
+        var y = touch.pageY - elm.top;
+        if(     x < $(this).width() && x > 0
+            &&  y < $(this).height() && y > 0)
+            physicWorld.updateJointAtMouse({x: e.pageX, y: e.pageY});
+    });
+
     $(document).mousedown(function(e) 
     {
         if(e.which === 1)
             leftButtonDown = true;
     });
 
+    $(document).bind('touchstart', function()
+    {
+        leftButtonDown = true;
+    });
+
     $(document).mouseup(function(e) 
     {
         if(e.which === 1)
-        {
-            leftButtonDown = false;
-            physicWorld.removeJointAtMouse();
-        }
+            removeMouseJoint();
     });
+
+    $(document).bind('touchend', function()
+    {
+        removeMouseJoint();
+    });
+
+    function removeMouseJoint()
+    {
+        leftButtonDown = false;
+        physicWorld.removeJointAtMouse();
+    }
 });
                     
 function initBodies(jsonData) 
