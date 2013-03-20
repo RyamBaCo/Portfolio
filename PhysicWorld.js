@@ -12,33 +12,13 @@ var   b2Vec2 = Box2D.Common.Math.b2Vec2,
       b2CircleShape = Box2D.Collision.Shapes.b2CircleShape,
       b2Listener = Box2D.Dynamics.b2ContactListener;
 
-var CATEGORY_FRAME = 0x0001;
-var CATEGORY_RING = 0x0002;
-var CATEGORY_LETTER = 0x0004;
-
-var letterJoints = [];
-var ringBodies = [];
-var mouseJoint;
-var listener = new b2Listener;
+// global because of usage in contact listener
 var world;
+var letterJoints = [];
 
-listener.BeginContact = function(contact) 
-{
-    userData1 = parseInt(contact.GetFixtureA().GetBody().GetUserData());
-    userData2 = parseInt(contact.GetFixtureB().GetBody().GetUserData());
-
-    // collision with ring
-    if(userData1 < numberOfRings || userData2 < numberOfRings)
-    {
-        jointId = Math.max(userData1, userData2);
-
-        if(letterJoints[jointId])
-        {
-            world.DestroyJoint(letterJoints[jointId]);
-            delete letterJoints[jointId];
-        }
-    }
-}
+PhysicWorld.prototype.CATEGORY_FRAME = 0x0001;
+PhysicWorld.prototype.CATEGORY_RING = 0x0002;
+PhysicWorld.prototype.CATEGORY_LETTER = 0x0004;
 
 function PhysicWorld(intervalRate, adaptive, width, height, scale) 
 {
@@ -57,7 +37,7 @@ function PhysicWorld(intervalRate, adaptive, width, height, scale)
 
     this.bodyDef = new b2BodyDef;
 
-    this.fixDef.filter.categoryBits = CATEGORY_FRAME; 
+    this.fixDef.filter.categoryBits = this.CATEGORY_FRAME; 
 
     // ground
     this.bodyDef.type = b2Body.b2_staticBody;
@@ -81,7 +61,30 @@ function PhysicWorld(intervalRate, adaptive, width, height, scale)
     this.bodyDef.position.x = (this.width + 5) / this.scale;
     world.CreateBody(this.bodyDef).CreateFixture(this.fixDef);
 
-    world.SetContactListener(listener);
+    this.listener = new b2Listener;
+    this.listener.BeginContact = this.beginContact;
+    world.SetContactListener(this.listener);
+
+    this.ringBodies = [];
+    this.mouseJoint = null;
+}
+
+PhysicWorld.prototype.beginContact = function(contact) 
+{
+    userData1 = parseInt(contact.GetFixtureA().GetBody().GetUserData());
+    userData2 = parseInt(contact.GetFixtureB().GetBody().GetUserData());
+
+    // collision with ring
+    if(userData1 < numberOfRings || userData2 < numberOfRings)
+    {
+        jointId = Math.max(userData1, userData2);
+
+        if(letterJoints[jointId])
+        {
+            world.DestroyJoint(letterJoints[jointId]);
+            delete letterJoints[jointId];
+        }
+    }
 }
 
 PhysicWorld.prototype.update = function() 
@@ -126,32 +129,32 @@ PhysicWorld.prototype.updateJointAtMouse = function(mousePosition)
                 delete letterJoints[i];
             }
 
-            if(!mouseJoint)
+            if(!this.mouseJoint)
             {
                 var mouseJointDef = new b2MouseJointDef;
                 mouseJointDef.bodyA = world.GetGroundBody();
-                mouseJointDef.bodyB = ringBodies[i];
+                mouseJointDef.bodyB = this.ringBodies[i];
                 mouseJointDef.target.Set(mousePosition.x / this.scale, mousePosition.y / this.scale);
                 mouseJointDef.collideConnected = true;
-                mouseJointDef.maxForce = 500.0 * ringBodies[i].GetMass();
-                mouseJoint = world.CreateJoint(mouseJointDef);
-                ringBodies[i].SetAwake(true);
+                mouseJointDef.maxForce = 500.0 * this.ringBodies[i].GetMass();
+                this.mouseJoint = world.CreateJoint(mouseJointDef);
+                this.ringBodies[i].SetAwake(true);
             }
 
             break;
         }
     }
 
-    if(mouseJoint)
-        mouseJoint.SetTarget(new b2Vec2(mousePosition.x / this.scale, mousePosition.y / this.scale));
+    if(this.mouseJoint)
+        this.mouseJoint.SetTarget(new b2Vec2(mousePosition.x / this.scale, mousePosition.y / this.scale));
 }
 
 PhysicWorld.prototype.removeJointAtMouse = function()
 {
-    if(mouseJoint)
+    if(this.mouseJoint)
     {
-        world.DestroyJoint(mouseJoint);
-        mouseJoint = null;
+        world.DestroyJoint(this.mouseJoint);
+        this.mouseJoint = null;
     }
 } 
 
@@ -199,18 +202,18 @@ PhysicWorld.prototype.setBodies = function(bodies)
         // letter
         if(entity.radius == null)
         {
-            this.fixDef.filter.categoryBits = CATEGORY_LETTER;
-            this.fixDef.filter.maskBits = CATEGORY_LETTER | CATEGORY_RING;
+            this.fixDef.filter.categoryBits = this.CATEGORY_LETTER;
+            this.fixDef.filter.maskBits = this.CATEGORY_LETTER | this.CATEGORY_RING;
             newBody.CreateFixture(this.fixDef);
         }
 
         // ring
         else
         {
-            this.fixDef.filter.categoryBits = CATEGORY_RING;
-            this.fixDef.filter.maskBits = CATEGORY_LETTER | CATEGORY_FRAME;
+            this.fixDef.filter.categoryBits = this.CATEGORY_RING;
+            this.fixDef.filter.maskBits = this.CATEGORY_LETTER | this.CATEGORY_FRAME;
             newBody.CreateFixture(this.fixDef);
-            ringBodies[entity.id] = newBody;
+            this.ringBodies[entity.id] = newBody;
         }
     }
 }
