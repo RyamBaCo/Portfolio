@@ -10,6 +10,7 @@
   </head>
 
   <body>
+    <div id="reload">reload</div>
     <canvas id="letterCanvas" width="800" height="400">
       Your Browser does not support HTML5 canvas!
     </canvas>

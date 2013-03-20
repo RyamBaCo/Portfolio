@@ -5,10 +5,12 @@ var ringImageHalfHeight = 0;
 
 var letterImage = null;
 var bodies = null;
+var currentPage;
 
 // local namespace
 $(function() 
 {
+    var jsonData;
     var context = $('#letterCanvas')[0].getContext('2d');
     var canvasWidth = context.canvas.width;
     var canvasHeight = context.canvas.height;
@@ -17,14 +19,14 @@ $(function()
     var ringIndizes = [];
     var physicWorld = null;
     var backImage = null;
-    var currentPage;
 
     // see http://www.jquery4u.com/snippets/url-parameters-jquery/
     $.urlParam = function(name)
     {
         var results = new RegExp('[\\?&amp;]' + name + '=([^&amp;#]*)').exec(window.location.href);
+        // default: page 1
         if(results == null)
-            return 0;
+            return 1;
         return results[1];
     }
 
@@ -35,11 +37,11 @@ $(function()
         currentPage = $.urlParam('page');
 
         letterImage = new Image();
-        letterImage.src = "letters.png";
+        letterImage.src = currentPage + "/letters.png";
         backImage = new Image();
-        backImage.src = "back.png";
+        backImage.src = currentPage + "/back.png";
         ringImage = new Image();
-        ringImage.src = "ring.png";
+        ringImage.src = currentPage + "/ring.png";
 
         ringImage.onload = function() 
         {
@@ -49,12 +51,18 @@ $(function()
 
         $.ajax(
         {
-            url: 'bodies.json', 
+            url: currentPage + "/bodies.json", 
             dataType: 'json'
         }).done(function(data) 
         {
-            $.initBodies(data);
+            jsonData = data;
+            $.initBodies();
         });
+    });
+
+    $('#reload').click(function() 
+    {
+        $.initBodies();
     });
 
     // interaction events
@@ -109,8 +117,10 @@ $(function()
         }
     });
        
-    $.initBodies = function(jsonData)
+    $.initBodies = function()
     { 
+        numberOfRings = 0;
+        
         for(var i in jsonData) 
             bodies[i] = Entity.build(i, jsonData[i]);
         
