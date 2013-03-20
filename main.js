@@ -117,11 +117,11 @@ $(function()
         physicWorld = new PhysicWorld(60, false, canvasWidth, canvasHeight, SCALE);
         physicWorld.setBodies(bodies);
 
-        (function loop(animStart) 
+        ($.loop = function(animStart) 
         {
             $.update(animStart);
             $.draw();
-            requestAnimFrame(loop);
+            requestAnimFrame($.loop);
         })();
     }
 
