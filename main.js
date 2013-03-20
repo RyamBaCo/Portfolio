@@ -12,8 +12,8 @@ $(function()
 {
     var jsonData;
     var context = $('#letterCanvas')[0].getContext('2d');
-    var canvasWidth = context.canvas.width;
-    var canvasHeight = context.canvas.height;
+    var canvasSize = {w: context.canvas.width, h: context.canvas.height};
+    var worldSize = {w: context.canvas.width / SCALE, h: context.canvas.height / SCALE};
 
     var SCALE = 30;
     var ringIndizes = [];
@@ -120,11 +120,11 @@ $(function()
     $.initBodies = function()
     { 
         numberOfRings = 0;
-        
+
         for(var i in jsonData) 
             bodies[i] = Entity.build(i, jsonData[i]);
         
-        physicWorld = new PhysicWorld(60, false, canvasWidth, canvasHeight, SCALE);
+        physicWorld = new PhysicWorld(60, false, canvasSize.w, canvasSize.h, SCALE);
         physicWorld.setBodies(bodies);
 
         ($.loop = function(animStart) 
@@ -138,7 +138,7 @@ $(function()
     $.update = function(animStart)
     {
         physicWorld.update();
-        physicWorld.updateBodies(bodies);
+        physicWorld.updateBodies(bodies, worldSize);
     }
 
     $.draw = function()
@@ -160,11 +160,11 @@ $(function()
             // left (aligned to ring)
             context.fillRect(0, bodies[0].y - ringImageHalfHeight, bodies[0].x - ringImageHalfWidth + 2, ringImage.height);
             // right
-            context.fillRect(bodies[0].x + ringImageHalfWidth - 2, bodies[0].y - ringImageHalfHeight, canvasWidth - (bodies[0].x + ringImageHalfWidth) + 2, ringImage.height);
+            context.fillRect(bodies[0].x + ringImageHalfWidth - 2, bodies[0].y - ringImageHalfHeight, canvasSize.w - (bodies[0].x + ringImageHalfWidth) + 2, ringImage.height);
             // top
-            context.fillRect(0, 0, canvasWidth, bodies[0].y - ringImageHalfHeight + 2);
+            context.fillRect(0, 0, canvasSize.w, bodies[0].y - ringImageHalfHeight + 2);
             // bottom
-            context.fillRect(0, bodies[0].y + ringImageHalfHeight - 2, canvasWidth, canvasHeight - (bodies[0].y + ringImageHalfHeight) + 2);
+            context.fillRect(0, bodies[0].y + ringImageHalfHeight - 2, canvasSize.w, canvasSize.h - (bodies[0].y + ringImageHalfHeight) + 2);
         }
     }
 

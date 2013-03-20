@@ -96,11 +96,14 @@ PhysicWorld.prototype.update = function()
     return (Date.now() - start);
 }
 
-PhysicWorld.prototype.updateBodies = function(bodies) 
+PhysicWorld.prototype.updateBodies = function(bodies, worldSize) 
 {
+    var bodiesToDelete = [];
+    var deleteThreshold = 1;
+
     for (var currentBody = world.GetBodyList(); currentBody; currentBody = currentBody.m_next) 
     {
-        if (currentBody.IsActive() && typeof currentBody.GetUserData() !== 'undefined' && currentBody.GetUserData() != null) 
+        if(currentBody.IsActive() && typeof currentBody.GetUserData() !== 'undefined' && currentBody.GetUserData() != null) 
             bodies[currentBody.GetUserData()].update(
               { 
                   x: currentBody.GetPosition().x * this.scale, 
@@ -108,7 +111,15 @@ PhysicWorld.prototype.updateBodies = function(bodies)
                   a: currentBody.GetAngle(), 
                   c: {x: currentBody.GetWorldCenter().x * this.scale, y: currentBody.GetWorldCenter().y * this.scale
               }});
+
+        if(     currentBody.GetPosition().x < -deleteThreshold 
+            ||  currentBody.GetPosition().x > worldSize.w + deleteThreshold
+            ||  currentBody.GetPosition().y > worldSize.h + deleteThreshold )
+            bodiesToDelete.push(currentBody);
     }
+
+    for(var i = 0; i < bodiesToDelete.length; i++) 
+        world.DestroyBody(bodiesToDelete[i]);
 }
 
 PhysicWorld.prototype.updateJointAtMouse = function(mousePosition) 
