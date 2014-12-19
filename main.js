@@ -145,7 +145,7 @@ $(function()
     $.update = function(animStart)
     {
         physicWorld.update();
-        physicWorld.updateBodies(bodies, worldSize);
+        physicWorld.updateBodies(bodies, worldSize, jsonData);
     }
 
     $.draw = function()

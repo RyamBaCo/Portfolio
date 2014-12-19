@@ -96,30 +96,41 @@ PhysicWorld.prototype.update = function()
     return (Date.now() - start);
 }
 
-PhysicWorld.prototype.updateBodies = function(bodies, worldSize) 
+PhysicWorld.prototype.updateBodies = function(bodies, worldSize, jsonData)
 {
-    var bodiesToDelete = [];
-    var deleteThreshold = 1;
+    var deleteThreshold = 200;
 
     for (var currentBody = world.GetBodyList(); currentBody; currentBody = currentBody.m_next) 
     {
-        if(currentBody.IsActive() && typeof currentBody.GetUserData() !== 'undefined' && currentBody.GetUserData() != null) 
+        if(currentBody.IsActive() && typeof currentBody.GetUserData() !== 'undefined' && currentBody.GetUserData() != null) {
             bodies[currentBody.GetUserData()].update(
-              { 
-                  x: currentBody.GetPosition().x * this.scale, 
-                  y: currentBody.GetPosition().y * this.scale, 
-                  a: currentBody.GetAngle(), 
-                  c: {x: currentBody.GetWorldCenter().x * this.scale, y: currentBody.GetWorldCenter().y * this.scale
-              }});
+                {
+                    x: currentBody.GetPosition().x * this.scale,
+                    y: currentBody.GetPosition().y * this.scale,
+                    a: currentBody.GetAngle(),
+                    c: {
+                        x: currentBody.GetWorldCenter().x * this.scale, y: currentBody.GetWorldCenter().y * this.scale
+                    }
+                });
 
-        if(     currentBody.GetPosition().x < -deleteThreshold 
-            ||  currentBody.GetPosition().x > worldSize.w + deleteThreshold
-            ||  currentBody.GetPosition().y > worldSize.h + deleteThreshold )
-            bodiesToDelete.push(currentBody);
+            if (currentBody.GetPosition().x < -deleteThreshold
+                || currentBody.GetPosition().x > this.width / this.scale + deleteThreshold
+                || currentBody.GetPosition().y > this.height / this.scale + deleteThreshold) {
+                test = jsonData[parseInt(currentBody.GetUserData())];
+                currentBody.SetPositionAndAngle({
+                    x: test.x / this.scale,
+                    y: test.y / this.scale
+                }, 0);
+
+                letterJointDef = new b2RevoluteJointDef();
+                letterJointDef.Initialize(currentBody, world.GetGroundBody(), currentBody.GetWorldCenter());
+                letterJointDef.lowerAngle = 0;
+                letterJointDef.upperAngle = 0;
+                letterJointDef.enableLimit = true;
+                letterJoints[currentBody.GetUserData()] = world.CreateJoint(letterJointDef);
+            }
+        }
     }
-
-    for(var i = 0; i < bodiesToDelete.length; i++) 
-        world.DestroyBody(bodiesToDelete[i]);
 }
 
 PhysicWorld.prototype.updateJointAtMouse = function(mousePosition) 

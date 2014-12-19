@@ -1,6 +1,8 @@
 function Entity(id, x, y) 
 {
     this.id = id;
+    this.startX = x;
+    this.startY = y;
     this.x = x;
     this.y = y;
     this.angle = 0;
