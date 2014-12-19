@@ -7,6 +7,7 @@ function Entity(id, x, y)
     this.y = y;
     this.angle = 0;
     this.center = {x: null, y: null};
+    this.m_alpha = 1.0;
 }
 
 Entity.prototype.update = function(body) 
@@ -15,6 +16,12 @@ Entity.prototype.update = function(body)
     this.y = body.y;
     this.center = body.c;
     this.angle = body.a;
+
+    if(this.m_alpha < 1.0) {
+        this.m_alpha += 0.01;
+        if(this.m_alpha > 1.0)
+            this.m_alpha = 1.0;
+    }
 }
 
 Entity.build = function(id, def) 
@@ -61,6 +68,7 @@ LetterEntity.prototype.constructor = LetterEntity;
 LetterEntity.prototype.draw = function(context) 
 {
     context.save();
+    context.globalAlpha = this.m_alpha;
     context.translate(this.x, this.y);
     context.rotate(this.angle);
     context.drawImage(

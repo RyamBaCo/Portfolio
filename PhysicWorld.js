@@ -128,6 +128,8 @@ PhysicWorld.prototype.updateBodies = function(bodies, worldSize, jsonData)
                 letterJointDef.upperAngle = 0;
                 letterJointDef.enableLimit = true;
                 letterJoints[currentBody.GetUserData()] = world.CreateJoint(letterJointDef);
+
+                bodies[currentBody.GetUserData()].m_alpha = 0.0;
             }
         }
     }
