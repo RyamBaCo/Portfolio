@@ -71,8 +71,10 @@ $(function()
         var leftButtonDown = false;
         $(document).mousemove(function(e)
         {
-            if(leftButtonDown)
-                physicWorld.updateJointAtMouse({x: e.pageX, y: e.pageY});
+            var boundingRect = context.canvas.getBoundingClientRect();
+            if(leftButtonDown) {
+                physicWorld.updateJointAtMouse({x: e.pageX - boundingRect.left, y: e.pageY - boundingRect.top});
+            }
         });
 
         $(document).bind('touchmove', function(e)
@@ -80,16 +82,10 @@ $(function()
             // see http://www.devinrolsen.com/basic-jquery-touchmove-event-setup/
             e.preventDefault();
             var touch = e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];
-            var elm = $(this).offset();
-            var touchX, touchY;
-            if(elm === undefined) {
-                touchX = touch.pageX;
-                touchY = touch.pageY;
-            }
-            else {
-                touchX = touch.pageX - elm.left;
-                touchY = touch.pageY - elm.top;
-            }
+            var boundingRect = context.canvas.getBoundingClientRect();
+            var touchX = touch.pageX - boundingRect.left;
+            var touchY = touch.pageY - boundingRect.top;
+
             if(     touchX < $(this).width() && touchX > 0
                 &&  touchY < $(this).height() && touchY > 0)
                 physicWorld.updateJointAtMouse({x: touchX, y: touchY});

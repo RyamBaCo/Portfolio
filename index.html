@@ -1,20 +1,116 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Fucked up stuff</title>
+    <title>Portfolio of Christian Mayr</title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    <script type="text/javascript" src="box2dweb/Box2dWeb-2.1.a.3.js"></script>
+    <script type="text/javascript" src="box2d.js"></script>
     <script type="text/javascript" src="PhysicWorld.js"></script>
     <script type="text/javascript" src="PhysicEntities.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="slidebars/slidebars.css">
   </head>
 
   <body>
-    <div id="reload">reload</div>
-    <canvas id="letterCanvas" width="800" height="400">
-      Your Browser does not support HTML5 canvas!
-    </canvas>
+
+    <div id="sb-site">
+      <a href="#" class="sb-toggle-left button-rollover"><span>Rollover</span></a>
+      <div id="reload">reload</div>
+      <canvas id="letterCanvas" width="800" height="400">
+        Your Browser does not support HTML5 canvas!
+      </canvas>
+    </div>
+
+    <div class="sb-slidebar sb-left">
+      <nav class="nav">
+        <div class="table">
+          <div class="tablecell">
+            <div class="centeredmenu" id="accordian">
+
+              <ul>
+                <li>
+                  <h3><a href="#">Games</a></h3>
+                  <ul>
+                    <li><a href="#" class="underline">Simetry</a></li>
+                    <li><a href="#">The Balloon Quest</a></li>
+                    <li><a href="#">Sidelives</a></li>
+                    <li><a href="#">Stealth Granny</a></li>
+                    <li><a href="#">Paper</a></li>
+                    <li><a href="#">TAB-Austria</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <h3><a href="#">Interaction</a></h3>
+                  <ul>
+                    <li><a href="#">Anton</a></li>
+                    <li><a href="#">Swep</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <h3><a href="#">Mods</a></h3>
+                  <ul>
+                    <li><a href="#">Asylum</a></li>
+                    <li><a href="#">Being Good</a></li>
+                    <li><a href="#">A Beautiful Nightmare</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <h3><a href="#">Scripts</a></h3>
+                  <ul>
+                    <li><a href="#">Undone Memories</a></li>
+                    <li><a href="#">545</a></li>
+                    <li><a href="#">Planescape: Purgatorio</a></li>
+                    <li><a href="#">Asylum</a></li>
+                    <li><a href="#">Being Good</a></li>
+                    <li><a href="#">Irre</a></li>
+                    <li><a href="#">A Beautiful Nightmare</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <h3><a href="#">Scientific Works</a></h3>
+                  <ul>
+                    <li><a href="#">Context Sensitive Alerting and Reminding on Mobile Devices</a></li>
+                    <li><a href="#">Gesture Recognition for Vision Based Interaction</a></li>
+                    <li><a href="#">Mesh Simplification</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="bottomarea">
+          <div class="social">
+            <ul>
+              <li><a href="http://www.facebook.com/antrocreation" target="_blank" class="icon icon_facebook alt">Facebook</a></li>
+              <li><a href="https://twitter.com/AGENCEANTRO" target="_blank" class="icon icon_twitter alt">Twitter</a></li>
+              <li><a href="http://www.linkedin.com/company/antro?trk=top_nav_home" target="_blank" class="icon icon_linkedin alt">Linkedin</a></li>
+              <li><a href="http://vimeo.com/antro" target="_blank" class="icon icon_vimeo alt">Vimeo</a></li>
+              <li><a href="https://plus.google.com/116811179752525931851" target="_blank" class="icon icon_gplus alt" rel="publisher">Google+</a></li>
+            </ul>
+          </div>
+        </div>
+        <a href="#" class="logo_antro_stamp" data-target="intro"></a>
+      </nav>
+    </div>
 
     <script src='main.js'></script>
+    <script src="slidebars/slidebars.js"></script>
+    <script>
+      (function($) {
+        $(document).ready(function() {
+          $.slidebars();
+
+          $("#accordian h3").mouseenter(function(){
+            //slide up all the link lists
+            $("#accordian ul ul").slideUp();
+            //slide down the link list below the h3 clicked - only if its closed
+            if(!$(this).next().is(":visible")) {
+              $(this).next().slideDown();
+            }
+          })
+
+        });
+      }) (jQuery);
+    </script>
   </body>
 </html>
