@@ -149,8 +149,7 @@
 		// Animate mixin.
 		function animate(object, amount, side) {
 			// Choose selectors depending on animation style.
-			var selector;
-			
+
 			if (object.hasClass('sb-style-push')) {
 				selector = $site.add(object).add($slide); // Push - Animate site, Slidebar and user elements.
 			} else if (object.hasClass('sb-style-overlay')) {
@@ -158,7 +157,7 @@
 			} else {
 				selector = $site.add($slide); // Reveal - Animate site and user elements.
 			}
-			
+
 			// Apply animation
 			if (animation === 'translate') {
 				selector.css('transform', 'translate(' + amount + ')'); // Apply the animation.
@@ -191,6 +190,8 @@
 
 		// Open a Slidebar
 		function open(side) {
+			$("body").css("overflow-x", "hidden");
+			$(".button-rollover span").css("background-image", "none");
 			// Check to see if opposite Slidebar is open.
 			if (side === 'left' && $left && rightActive || side === 'right' && $right && leftActive) { // It's open, close it, then continue.
 				close();
@@ -228,6 +229,8 @@
 				}
 			
 				setTimeout(function() { // Wait for closing animation to finish.
+					$("body").css("overflow-x", "auto");
+					$(".button-rollover span").css("background-image", "");
 					$('html').removeClass('sb-active sb-active-left sb-active-right'); // Remove active classes.
 					if ($left) $left.removeClass('sb-active');
 					if ($right) $right.removeClass('sb-active');

@@ -7,34 +7,54 @@ var letterImage = null;
 var bodies = null;
 var currentPage;
 
+jQuery(function($) {
+
+    var _oldShow = $.fn.show;
+
+    $.fn.show = function(speed, oldCallback) {
+        return $(this).each(function() {
+            var obj         = $(this),
+                newCallback = function() {
+                    if ($.isFunction(oldCallback)) {
+                        oldCallback.apply(obj);
+                    }
+                    obj.trigger('afterShow');
+                };
+
+            // you can trigger a before show if you want
+            obj.trigger('beforeShow');
+
+            // now use the old function to show the element passing the new callback
+            _oldShow.apply(obj, [speed, newCallback]);
+        });
+    }
+});
+
 // local namespace
 $(function() 
 {
     var jsonData;
-    var context = $('#letterCanvas')[0].getContext('2d');
-    var canvasSize = {w: context.canvas.width, h: context.canvas.height};
-    var worldSize = {w: context.canvas.width / SCALE, h: context.canvas.height / SCALE};
+    var context;
+    var canvasSize;
+    var worldSize;
 
     var SCALE = 30;
     var ringIndizes = [];
     var physicWorld = null;
     var backImage = null;
 
-    // see http://www.jquery4u.com/snippets/url-parameters-jquery/
-    $.urlParam = function(name)
-    {
-        var results = new RegExp('[\\?&amp;]' + name + '=([^&amp;#]*)').exec(window.location.href);
-        // default: page 1
-        if(results == null)
-            return 1;
-        return results[1];
-    }
+    $(document).ready(function() {
+        $.loadPage(1);
+    });
 
-    $(document).ready(function()
+    $.loadPage = function(currentPage)
     {
+        context = $('#letterCanvas' + currentPage)[0].getContext('2d');
+        canvasSize = {w: context.canvas.width, h: context.canvas.height};
+        worldSize = {w: context.canvas.width / SCALE, h: context.canvas.height / SCALE};
+
         bodies = new Array();
         ringIndizes = new Array();
-        currentPage = $.urlParam('page');
 
         letterImage = new Image();
         letterImage.src = currentPage + "/letters.png";
@@ -43,26 +63,26 @@ $(function()
         ringImage = new Image();
         ringImage.src = currentPage + "/ring.png";
 
-        ringImage.onload = function() 
+        ringImage.onload = function()
         {
             ringImageHalfWidth = ringImage.width / 2;
             ringImageHalfHeight = ringImage.height / 2;
         }
 
         $.ajax(
-        {
-            url: currentPage + "/bodies.json", 
-            dataType: 'json'
-        }).done(function(data) 
-        {
-            jsonData = data;
-            $.initBodies();
-        });
-    });
+            {
+                url: currentPage + "/bodies.json",
+                dataType: 'json'
+            }).done(function(data)
+            {
+                jsonData = data;
+                $.initBodies();
+            });
+    }
 
-    $('#reload').click(function() 
+    $(document).ready(function()
     {
-        $.initBodies();
+
     });
 
     // interaction events

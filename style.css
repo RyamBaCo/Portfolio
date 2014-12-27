@@ -14,12 +14,13 @@ body {
 	height: 100%;
 	line-height: 30px;
 	padding-left: 10px;
-	position: absolute;
-	top: 0px;
+	top: 0;
 	text-align: center;
 	text-transform: uppercase;
-	width: 40px;
+	width: 100px;
 	border-left: 3px solid #b0f1e4;
+	z-index: 800;
+	position: fixed;
 }
 
 .button-rollover span {
@@ -29,7 +30,7 @@ body {
 	height: 20px;
 	left: 5px;
 	margin-top: -8px;
-	position: absolute;
+	position: fixed;
 	text-indent: -9999px;
 	top: 50%;
 	z-index: 800;
@@ -111,15 +112,19 @@ nav .bottomarea {
 	width: 100%;
 }
 
-nav .logo_antro_stamp {
-	background: url('http://www.antro.ca/img/svg/logo_antro_stamp.svg') no-repeat center center;
-	height: 40px;
-	margin-left: -20px;
-	margin-top: -20px;
+nav .logo {
+	background: url('./img/welcome.png') no-repeat center center;
+	height: 45px;
+	margin-left: -50px;
+	margin-top: -22px;
 	position: absolute;
 	left: 50%;
-	top: 20%;
-	width: 40px;
+	top: 15%;
+	width: 100px;
+}
+
+nav .logo:hover {
+	background: url('./img/welcomeHover.png') no-repeat center center;
 }
 
 nav {
@@ -128,4 +133,21 @@ nav {
 	position: fixed;
 	width: 280px;
 	z-index: 800;
+}
+
+#siteWrapper {
+	width: 100%;
+}
+
+#letterCanvas1 {
+	display: table;
+	margin: 0 auto;
+	padding-top: 30px;
+}
+
+#section0,
+#section1,
+#section2,
+#section3{
+	background-size: cover;
 }
