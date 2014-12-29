@@ -129,7 +129,6 @@ $(function()
         $(document).bind('touchmove', function(e)
         {
             // see http://www.devinrolsen.com/basic-jquery-touchmove-event-setup/
-            e.preventDefault();
             var touch = e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];
             var boundingRect = context.canvas.getBoundingClientRect();
             var touchX = touch.clientX - boundingRect.left;
