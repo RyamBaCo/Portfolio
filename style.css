@@ -1,11 +1,20 @@
 * {	margin: 0; padding: 0; }
 
+@font-face {
+	font-family: "Ubuntu";
+	src: url(./Ubuntu-R.ttf) format("truetype");
+}
+
 body {
 	margin-left: auto;
 	margin-right: auto;
-	font-family: Verdana, Arial, sans-serif;
+	font-family: "Ubuntu", Verdana, Arial, sans-serif;
 	background-color: #000000;
 	color: #ffffff;
+}
+
+body, html, #sb-site, #siteWrapper {
+	height: 100%;
 }
 
 .button-rollover {
@@ -139,15 +148,85 @@ nav {
 	width: 100%;
 }
 
+#siteWrapper a {
+	color: #ababab;
+	text-decoration: none;
+}
+
+#siteWrapper a:hover {
+	text-decoration: underline;
+}
+
 #letterCanvas1 {
-	display: table;
-	margin: 0 auto;
 	padding-top: 30px;
+}
+
+#letterCanvas2 {
+	display: none;
+}
+
+#letterCanvas1Alt {
+	display: none;
+}
+
+.siteEntry {
+	clear: both;
+	text-align: center;
+	padding: 5px 30px 5px 30px;
+	min-width: 900px;
 }
 
 #section0,
 #section1,
 #section2,
 #section3{
-	background-size: cover;
+	min-width: 960px;
+	min-height: 500px;
+	height: 100%;
+}
+
+#section0 {
+	background-image: url('./img/back0.png');
+}
+
+#section1 {
+	background-image: url('./img/back1.png');
+}
+
+#section2 {
+	background-image: url('./img/back2.png');
+}
+
+.meCategory {
+	width: 350px;
+	text-align: left;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.meCategory h1 {
+	text-align: center;
+	font-size: 25px;
+}
+
+.meCategory p {
+	font-size: 13px;
+}
+
+.meEntry {
+	clear: both;
+	margin: 5px 15px 10px 15px;
+}
+
+.meColumnRight {
+	text-align: right;
+}
+
+.meColumnLeft {
+	float: left;
+}
+
+.meContact {
+	font-size: 22px;
+	padding-top: 15px;
 }

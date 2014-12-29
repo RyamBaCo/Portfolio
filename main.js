@@ -5,7 +5,6 @@ var ringImageHalfHeight = 0;
 
 var letterImage = null;
 var bodies = null;
-var currentPage;
 
 jQuery(function($) {
 
@@ -37,6 +36,7 @@ $(function()
     var context;
     var canvasSize;
     var worldSize;
+    var fillStyle = '#000000';
 
     var SCALE = 30;
     var ringIndizes = [];
@@ -44,11 +44,24 @@ $(function()
     var backImage = null;
 
     $(document).ready(function() {
-        $.loadPage(1);
+//        $.loadPage(1, '#171717');
+        $.loadPage(2, '#0f1763');
     });
 
-    $.loadPage = function(currentPage)
+    $.loadPage = function(currentPage, fillColor)
     {
+        for(page = 1; page <= 2; ++page) {
+            if(currentPage == page) {
+                $('#letterCanvas' + page).css("display", "inline");
+                $('#letterCanvas' + page + 'Alt').css("display", "none");
+            }
+            else {
+                $('#letterCanvas' + page).css("display", "none");
+                $('#letterCanvas' + page + 'Alt').css("display", "block");
+            }
+        }
+
+        fillStyle = fillColor;
         context = $('#letterCanvas' + currentPage)[0].getContext('2d');
         canvasSize = {w: context.canvas.width, h: context.canvas.height};
         worldSize = {w: context.canvas.width / SCALE, h: context.canvas.height / SCALE};
@@ -80,11 +93,6 @@ $(function()
             });
     }
 
-    $(document).ready(function()
-    {
-
-    });
-
     // interaction events
     $(function() 
     {
@@ -93,7 +101,7 @@ $(function()
         {
             var boundingRect = context.canvas.getBoundingClientRect();
             if(leftButtonDown) {
-                physicWorld.updateJointAtMouse({x: e.pageX - boundingRect.left, y: e.pageY - boundingRect.top});
+                physicWorld.updateJointAtMouse({x: e.clientX - boundingRect.left, y: e.clientY - boundingRect.top});
             }
         });
 
@@ -103,8 +111,8 @@ $(function()
             e.preventDefault();
             var touch = e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];
             var boundingRect = context.canvas.getBoundingClientRect();
-            var touchX = touch.pageX - boundingRect.left;
-            var touchY = touch.pageY - boundingRect.top;
+            var touchX = touch.clientX - boundingRect.left;
+            var touchY = touch.clientY - boundingRect.top;
 
             if(     touchX < $(this).width() && touchX > 0
                 &&  touchY < $(this).height() && touchY > 0)
@@ -175,7 +183,7 @@ $(function()
     // "fakes" transparency for rings
     $.drawBlackSquares = function()
     {
-        context.fillStyle = '#000000';
+        context.fillStyle = fillStyle;
 
         if(numberOfRings == 1)
         {

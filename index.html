@@ -6,11 +6,9 @@
     <script type="text/javascript" src="box2d.js"></script>
     <script type="text/javascript" src="PhysicWorld.js"></script>
     <script type="text/javascript" src="PhysicEntities.js"></script>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-    <script type="text/javascript" src="fullpage/jquery.fullPage.min.js"></script>
+    <script type="text/javascript" src="jquery-1.11.2.min.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="slidebars/slidebars.css">
-    <link rel="stylesheet" type="text/css" href="fullpage/jquery.fullPage.css" />
   </head>
 
   <body>
@@ -19,12 +17,53 @@
       <a href="#" class="sb-toggle-left button-rollover"><span>Rollover</span></a>
       <div id="siteWrapper">
         <div class="section" id="section0">
-          <canvas id="letterCanvas1" width="900" height="400">
-            Your Browser does not support HTML5 canvas!
-          </canvas>
+          <div class="siteEntry">
+            <canvas id="letterCanvas1" width="900" height="380">
+              <img src="1/letters.png" alt="Letters"/>
+            </canvas>
+            <div id="letterCanvas1Alt">
+              <img src="1/letters.png" alt="Letters"/>
+            </div>
+          </div>
+          <div class="siteEntry">
+            <div class="meCategory">
+              <h1>Work Experience</h1>
+              <div class="meEntry"><p class="meColumnLeft">2012-2013</p> <p class="meColumnRight">Web Developer</p><p class="meColumnRight clear">Freelancer</p></div>
+              <div class="meEntry"><p class="meColumnLeft">2012</p> <p class="meColumnRight">Android Developer Intern</p><p class="meColumnRight clear"><a href="http://www.sonydadc.com/" target="_blank">Sony DADC</a> (Anif, Austria)</p></div>
+              <div class="meEntry"><p class="meColumnLeft">2011</p> <p class="meColumnRight">Software Developer Intern</p><p class="meColumnRight clear"><a href="http://metaversum.com/" target="_blank">Metaversum</a> (Berlin, Germany)</p></div>
+              <div class="meEntry"><p class="meColumnLeft">2005-2009</p> <p class="meColumnRight">Software Developer</p><p class="meColumnRight clear"><a href="http://www.tab.at/" target="_blank">TAB-Austria</a> (Ansfelden, Austria)</p></div>
+              <div class="meEntry"><p class="meColumnLeft">2004-2005</p> <p class="meColumnRight">Compulsary Paid Community Service</p><p class="meColumnRight clear"><a href="http://www.lebenshilfe.at/" target="_blank">Lebenshilfe</a> (Linz, Austria)</p></div>
+            </div>
+            <div class="meCategory">
+              <h1>Education</h1>
+              <div class="meEntry"><p class="meColumnLeft">2012-present</p> <p class="meColumnRight"><a href="http://www.fh-salzburg.ac.at/" target="_blank">Salzburg University of Applied Sciences</a></p><p class="meColumnRight clear">Master of Science expected in February 2015</p></div>
+              <div class="meEntry"><p class="meColumnLeft">2013</p> <p class="meColumnRight"><a href="http://www.ajou.ac.kr/" target="_blank">Ajou University</a> (Suwon, South Korea)</p><p class="meColumnRight clear">Exchange Semester</p></div>
+              <div class="meEntry"><p class="meColumnLeft">2009-2012</p> <p class="meColumnRight"><a href="http://www.fh-salzburg.ac.at/" target="_blank">Salzburg University of Applied Sciences</a></p><p class="meColumnRight clear">Bachelor of Science in Engineering</p></div>
+              <div class="meEntry"><p class="meColumnLeft">1999-2004</p> <p class="meColumnRight"><a href="https://www.htl-leonding.at/" target="_blank">Higher Technical College of Informatics</a></p><p class="meColumnRight clear">Equivalent to A levels/high school diploma</p></div>
+            </div>
+            <div class="meCategory">
+              <h1>Qualifications</h1>
+              <div class="meEntry"><p>Languages</p> <p>German (native), English (fluent), Korean (basic)</p></div>
+              <div class="meEntry"><p>Programming Languages</p> <p>C++, C#, Java, Python, XHTML, jQuery, PHP, XML, JSON, SQL, UnrealScript</p></div>
+              <div class="meEntry"><p>Frameworks</p> <p>Unity, XNA, MonoGame, Android SDK, OpenNI, Vuforia, SDL, DarkGDK,
+                Unreal Development Kit, OpenGL, OpenCV, Box2D, TinyXML, Gson</p></div>
+              <div class="meEntry"><p>Programs</p> <p>Visual Studio, Unity, MonoDevelop, Eclipse, LaTeX, Tortoise SVN, Visual
+                Source Safe, Plastic SCM, Adobe Photoshop</p></div>
+              <div class="meEntry"><p>Excellent Skills</p> <p>Object Oriented Programming, Software Engineering</p></div>
+              <div class="meEntry"><p>Other Skills</p> <p>Scrum, Creative Writing, Acting</p></div>
+            </div>
+          </div>
+          <div class="siteEntry meContact"><a href="#" target="_blank">Resumé</a> | <a href="#" target="_blank">Mail</a> | <a href="http://at.linkedin.com/pub/christian-mayr/55/28/bb9/" target="_blank">LinkedIn</a> | <a href="https://github.com/ryambaco" target="_blank">GitHub</a> | <a href="https://www.facebook.com/RyamBaCo/">Facebook</a> | <a href="google.com/+ChristianMayr" target="_blank">Google+</a> </div>
         </div>
         <div class="section" id="section1">
-          wie macht katze?
+          <div class="siteEntry">
+            <canvas id="letterCanvas2" width="900" height="350">
+              <img src="2/letters.png" alt="Letters"/>
+            </canvas>
+            <div id="letterCanvas2Alt">
+              <img src="2/letters.png" alt="Letters"/>
+            </div>
+          </div>
         </div>
         <div class="section" id="section2">
           wie macht es jetzt?
@@ -111,10 +150,6 @@
         $(document).ready(function() {
           $.slidebars();
 
-          $('#siteWrapper').fullpage({
-            verticalCentered: false
-          });
-
           $("#accordian h3").mouseenter(function(){
             //slide up all the link lists
             $("#accordian ul ul").slideUp();
@@ -123,6 +158,11 @@
               $(this).next().slideDown();
             }
           })
+
+          $('.section').css('minHeight', $('html').height() + 'px'); // Set minimum height of the site to the minimum height of the html.
+          $(window).resize(function(e) {
+            $('.section').css('minHeight', $('html').height() + 'px'); // Set minimum height of the site to the minimum height of the html.
+          });
 
         });
       }) (jQuery);

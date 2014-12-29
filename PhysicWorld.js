@@ -137,7 +137,9 @@ PhysicWorld.prototype.updateBodies = function(bodies, worldSize, jsonData)
 
 PhysicWorld.prototype.updateJointAtMouse = function(mousePosition) 
 {
-    for(var i in bodies) 
+    console.log('update at ' + mousePosition.x + " " + mousePosition.y);
+
+    for(var i in bodies)
     {
         if(i >= numberOfRings)
             break;
