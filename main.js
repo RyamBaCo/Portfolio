@@ -45,7 +45,28 @@ $(function()
 
     $(document).ready(function() {
 //        $.loadPage(1, '#171717');
-        $.loadPage(2, '#0f1763');
+//        $.loadPage(2, '#0f1763');
+
+        var windowHeight = $(window).innerHeight();
+        // function to be used to retrieve variable
+        function getWindowHeight() {
+            return windowHeight;
+        }
+        $(window).resize(function(e) {
+            windowHeight = $(window).innerHeight();
+        });
+
+        var controller = new ScrollMagic();
+        var scene0 = new ScrollScene({triggerElement: "#section0", duration: getWindowHeight})
+            .addTo(controller)
+            .on("enter", function (e) {
+                $.loadPage(1, '#171717');
+            });
+        var scene0 = new ScrollScene({triggerElement: "#section1", duration: getWindowHeight})
+            .addTo(controller)
+            .on("enter", function (e) {
+                $.loadPage(2, '#0f1763');
+            });
     });
 
     $.loadPage = function(currentPage, fillColor)

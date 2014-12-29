@@ -7,6 +7,7 @@
     <script type="text/javascript" src="PhysicWorld.js"></script>
     <script type="text/javascript" src="PhysicEntities.js"></script>
     <script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="jquery.scrollmagic.min.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="slidebars/slidebars.css">
   </head>
@@ -159,8 +160,15 @@
             }
           })
 
+          var windowHeight = $(window).innerHeight();
+          // function to be used to retrieve variable
+          function getWindowHeight() {
+            return windowHeight;
+          }
+
           $('.section').css('minHeight', $('html').height() + 'px'); // Set minimum height of the site to the minimum height of the html.
           $(window).resize(function(e) {
+            windowHeight = $(window).innerHeight();
             $('.section').css('minHeight', $('html').height() + 'px'); // Set minimum height of the site to the minimum height of the html.
           });
 
