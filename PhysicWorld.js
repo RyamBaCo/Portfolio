@@ -137,16 +137,12 @@ PhysicWorld.prototype.updateBodies = function(bodies, worldSize, jsonData)
 
 PhysicWorld.prototype.updateJointAtMouse = function(mousePosition) 
 {
-    console.log('update at ' + mousePosition.x + " " + mousePosition.y);
-
     for(var i in bodies)
     {
         if(i >= numberOfRings)
             break;
 
-        var entity = bodies[i];
         var translatedPosition = new b2Vec2(mousePosition.x - bodies[i].x, mousePosition.y - bodies[i].y);
-
         if(translatedPosition.LengthSquared() <= bodies[i].radiusSquared)
         {
             if(letterJoints[i])
@@ -166,13 +162,15 @@ PhysicWorld.prototype.updateJointAtMouse = function(mousePosition)
                 this.mouseJoint = world.CreateJoint(mouseJointDef);
                 this.ringBodies[i].SetAwake(true);
             }
-
-            break;
         }
     }
 
-    if(this.mouseJoint)
+    if(this.mouseJoint) {
         this.mouseJoint.SetTarget(new b2Vec2(mousePosition.x / this.scale, mousePosition.y / this.scale));
+        return true;
+    }
+
+    return false;
 }
 
 PhysicWorld.prototype.removeJointAtMouse = function()

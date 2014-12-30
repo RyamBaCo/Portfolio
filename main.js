@@ -135,8 +135,10 @@ $(function()
             var touchY = touch.clientY - boundingRect.top;
 
             if(     touchX < $(this).width() && touchX > 0
-                &&  touchY < $(this).height() && touchY > 0)
-                physicWorld.updateJointAtMouse({x: touchX, y: touchY});
+                &&  touchY < $(this).height() && touchY > 0) {
+                if(physicWorld.updateJointAtMouse({x: touchX, y: touchY}))
+                    e.preventDefault();
+            }
         });
 
         $(document).mousedown(function(e) 
