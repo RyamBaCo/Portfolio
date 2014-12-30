@@ -122,7 +122,8 @@ $(function()
         {
             var boundingRect = context.canvas.getBoundingClientRect();
             if(leftButtonDown) {
-                physicWorld.updateJointAtMouse({x: e.clientX - boundingRect.left, y: e.clientY - boundingRect.top});
+                if(physicWorld.updateJointAtMouse({x: e.clientX - boundingRect.left, y: e.clientY - boundingRect.top}))
+                    e.preventDefault();
             }
         });
 
