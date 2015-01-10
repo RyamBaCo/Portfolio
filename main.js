@@ -62,16 +62,21 @@ $(function()
             .on("enter", function (e) {
                 $.loadPage(1, '#171717');
             });
-        var scene0 = new ScrollScene({triggerElement: "#section1", duration: getWindowHeight})
+        var scene1 = new ScrollScene({triggerElement: "#section1", duration: getWindowHeight})
             .addTo(controller)
             .on("enter", function (e) {
                 $.loadPage(2, '#0f1763');
+            });
+        var scene2 = new ScrollScene({triggerElement: "#section2", duration: getWindowHeight})
+            .addTo(controller)
+            .on("enter", function (e) {
+                $.loadPage(3, '#332545');
             });
     });
 
     $.loadPage = function(currentPage, fillColor)
     {
-        for(page = 1; page <= 2; ++page) {
+        for(page = 1; page <= 3; ++page) {
             if(currentPage == page) {
                 $('#letterCanvas' + page).css("display", "inline");
                 $('#letterCanvas' + page + 'Alt').css("display", "none");
