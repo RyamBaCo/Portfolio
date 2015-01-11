@@ -183,10 +183,7 @@ nav {
 	border-top: 1px solid;
 }
 
-#section0,
-#section1,
-#section2,
-#section3{
+#section0, #section1, #section2, #section3, #section4 {
 	min-width: 960px;
 	min-height: 500px;
 	height: 100%;
@@ -205,6 +202,16 @@ nav {
 #section2 {
 	background-image: url('./img/back2.png');
 	color: #e3fac6;
+}
+
+#section3 {
+	background-image: url('./img/back3.png');
+	color: #d1c8d4;
+}
+
+#section4 {
+	background-image: url('./img/back4.png');
+	color: #d1c8d4;
 }
 
 .centeredColumnMe, .centeredColumnLogo, .centeredColumnTrailer {

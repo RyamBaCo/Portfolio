@@ -72,11 +72,16 @@ $(function()
             .on("enter", function (e) {
                 $.loadPage(3, '#332545');
             });
+        var scene3 = new ScrollScene({triggerElement: "#section3", duration: getWindowHeight})
+            .addTo(controller)
+            .on("enter", function (e) {
+                $.loadPage(4, '#324829');
+            });
     });
 
     $.loadPage = function(currentPage, fillColor)
     {
-        for(page = 1; page <= 3; ++page) {
+        for(page = 1; page <= 4; ++page) {
             if(currentPage == page) {
                 $('#letterCanvas' + page).css("display", "inline");
                 $('#letterCanvas' + page + 'Alt').css("display", "none");
