@@ -102,7 +102,7 @@ PhysicWorld.prototype.updateBodies = function(bodies, worldSize, jsonData)
 
     for (var currentBody = world.GetBodyList(); currentBody; currentBody = currentBody.m_next) 
     {
-        if(currentBody.IsActive() && typeof currentBody.GetUserData() !== 'undefined' && currentBody.GetUserData() != null) {
+        if(currentBody.IsActive() && typeof currentBody.GetUserData() != 'undefined' && currentBody.GetUserData() != null) {
             bodies[currentBody.GetUserData()].update(
                 {
                     x: currentBody.GetPosition().x * this.scale,

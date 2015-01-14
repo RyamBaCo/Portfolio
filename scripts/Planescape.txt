@@ -1,0 +1,365 @@
+Excerpt of Outer Plane Design "Limbo", Christian Mayr 2008
+
+<name>
+full of single islands in clouds or something
+5 main islands named north, east, south, west and center
+
+inhabitants:
+"the lost" are a group of natives who sacrifice parts of their own to a god called "the owner".
+they believe that everything except their soul is loaned of their owner. once you clear your debts and give everything that doesn't belong to you back to him you reach the completion in the "code of incompleteness" and are ready to sacrifice yourself.
+
+the island consists of 5 cardinal points (north, east, south, west and center) each representing a loaned part of yourself
+
+stage 1
+memento
+you need to sacrifice the memory of your birth and the memory of your death to "the owner"
+
+stage 2
+manifest
+you need to sacrifice a part of your body to "the owner" / you need to sacrifice your beliefs
+
+stage 3
+tenor
+you need to sacrifice your eyesight
+
+stage 4
+core
+you may go to the abyss and sacrifice yourself
+
+on the center island is a big obelisk. on certain intervals - "the lost" call this event ascension day - the islands are flooded by light and the obelisk casts a shadow to east, west, south or north
+the eldest person on this island is honored to sacrifice one part of his body
+once somebody is ready to reach stage 4 the current leader will be sacrificed to "the owner" and he reaches the last and final stage in the "code of incompleteness"
+
+areas:
+
+----
+main plateau:
+4 portals leading up to the islands
+dump
+fountain of wishes
+praying rift
+pool of sins
+----
+
+----
+memento:
+meditation room
+----
+
+----
+manifest:
+walls of incompleteness
+----
+
+---
+tenor:
+only the blinded may pass
+---
+
+
+
+note: islands should represent some kind of class society, from slum (east + west) to posh (center)
+
+characters:
+
+--main plateau
+octarious - once a butcher, now cutting off bodyparts for a copper coin
+gatherer - sells body parts he found in the dump, may be usefull as weapons (like the arm in planescape: torment)
+nero - running around, talking to himself, wants octarious to cut off his arms and legs
+guard - guards entrance to memento
+halem - some kind of priest
+
+--pool of sins
+serena - some kind of guard
+
+
+--memento
+
+--manifest
+
+--tenor
+
+--core
+
+quests:
+
+---
+main
+
+you may only enter one of the flying isles when you prove your worth for "the lost" by receiving a recommendation
+	- go to halem and simply steal a recommendation
+	- go to halem and learn the "code of incompleteness"
+memento:
+	- guide through a maze where you get younger and younger while walking towards oblivion
+	- guide through the same maze with opposite directions where you get older and older while walking towards oblivion
+manifest:
+	- walk to octarious and let him cut off a food or arm or
+	- do it yourself by putting a arm or foot into the wall of incompleteness
+tenor:
+	- since the cutting of an eye is a long procedure you need to free ??? from the pool of sins
+core:
+	- you walk blinded (text-adventure like) towards the bridge where you get eaten by the creature and loose contact to your psychic
+	
+	
+code of imcompleteness:
+
+"My Owner is my everything, my existance is my curse
+So I give owt back to him, before it all turns worse
+
+Memories are for the weak and vulnerable ones
+Sent to my Owner as a gift for everything undone
+
+A part of me ought only free once my Owner harvests all
+Obtain great pain against the wall to confirm my own fall
+
+Destructive thoughts will overwhelm once your eyes in sight
+Man's destiny is to embrace my Owner's darkness night
+
+My Owner is my everything, my existance is my curse
+So I give owt back to him, before it all turns worse"
+
+
+--Octarious--
+
+(off)
+The/And the ... belongs to the ...
+Both/The ... and the ... are dancing/celebrating/debating every day/all night long/till the break of dawn
+... ... ..., I love ...!
+arm
+heart
+skin
+bone
+muscle
+tongue
+face
+teeth
+neck
+hair
+ear
+lip
+knee
+shoulder
+head
+brain
+nose
+foot
+
+(conversation)
+Why are you disturbing me, meat?
+Who are you?
+Octarious is what they call my flesh. Octarious is what they call my bones. Octarious is all they say to me. Octarious, Octarious.
+Anything wrong with that?
+Frustrated?
+Flesh shouldn't have names. Bones shouldn't have names. They all should remain nameless.
+What's wrong with names?
+Dust? Does dust have names?
+Ground? Does ground have names?
+So why should we have names?
+Because we are alive and ground and dust not?
+Alive? Dead? What does that count? They are all here for a simple usage. They don't need names.
+And how will you distinguish between us?
+Why should I differ between meat? They all have the same usage.
+Which usage are you talking about?
+They are here for flesh. They are here for bones. They are simply meat. They are all the same.
+Nevermind.
+Why are you still there, meat?
+<FirstName> is what they call me.
+<FirstName>? <FirstName>? Why not meat? Why not flesh? So... complicating.
+Meat?
+Meat is what you're made of. Meat is what I make out of you.
+Meat is my task. Meat is my life.
+I need information about this place.
+All the meat is trapped inside this sphere. No one to come and no one to go.
+Keep on doing what you're doing.
+
+--Halem--
+
+(cutscene)
+We are the mediums of our Owner's will
+Only a shell of his most valuable property
+Creations based upon his ideals
+Now light the eternal flame
+
+Our voice doesn't belong to us
+So I beg for silence
+...
+Our eyesight doesn't belong to us
+So I beg for darkness
+...
+
+Reveal the shadows
+To the pool of sins
+...
+
+Once a servant
+Now a betrayer
+Tried to cheat the inevitable
+
+He does not deserve the Owner's gift
+Gather his soul
+And commit him to the flames
+
+(conversation - right after cutscene)
+Does our spy find this interesting?
+What is going on?
+What are you doing here?
+Interested in our ceremony, spy?
+I'm not a spy.
+Nor one of us. Why are you here?
+I'm seeking for something.
+Aren't we all seeking "something"? Driven by greed but soon you'll find out that you're trapped. Like all the others before.
+I have no idea!
+Oh... another traveller? Arriving unintended and unable to go. Like all the others before.
+What happened to the other visitors?
+Wait... I can't leave these planes?
+Questions, questions, questions. I have no time for your questions.
+Take this coin and drop it into the Fountain of Wishes.
+The wind may give you the answers you need.
+The wind?
+It is the voice that whispers. The gateway to the fountain. That's all we know and that's all we understand.
+What is the Fountain of Wishes?
+Why don't you ask her instead of wasting my time?
+Where did you get this coin from?
+Everytime we sacrifice a soul to the eternal flame we receive a coin as reward. Since it can only be throwed into the Fountain of Wishes I have no need for them.
+Why don't you use the coin for the Fountain of Wishes?
+I talked to the wind multiple times, but that wasn't satisfying. She was always talking about salvation for my soul instead of revealing secrets of the Owner. I'm done with her.
+Why do I need this coin?
+Without the coin you wouldn't be able to understand her. Only the powers inside the coin give her temporary the ability to talk in a language you understand.
+Tell me about the ceremony.
+About the ceremony...
+I'm not giving any information about the ceremony to spies like you!
+I need to go.
+Wait! Interrupting our ceremony without talking about your motives are very bad manners, sir/ma'am!
+
+--Fountain of Wishes--
+
+(conversation)
+The water occurs unsettled.
+Drop Halem's coin into the water
+Leave
+
+All of a sudden the water starts to boil.
+Steam ascends and cuts faces in the air.
+They try to talk, but their voices are imprisoned in their own void.
+Wind begins to blow slowly through the scene.
+Faster and faster almost forming a storm.
+You hear voices.
+
+...resurrected and forgotten... 
+...a coming and going... 
+...eternally...
+Are you the wind Halem talked about?
+...halem... 
+...lost in his own delusion...
+...leading a group...
+...to nowhere...
+What do you know about Halem?
+...once a visitor now a slave...
+...sold his principles to the creature...
+Creature?
+...halem calls him owner... 
+...halem calls him sacred...
+...was asking me about him... 
+...but didn't like the answers...
+What did you tell him?
+...the owner is a betrayer...
+...he manipulates...
+...and there's nothing you can do...
+How does he manipulate Halem?
+...i can't glance into the core...
+...don't know how...
+The core?
+...the island up in the clouds...
+...halem declines access...
+...for those he calls the heathen...
+...for those remaining free...
+Is there anything I need to know?
+...halem came...
+...just like the others...
+...yet can't leave...
+What do you mean by "visitor"?
+...he is a visitor just like you...
+...no way to leave...
+...since they are all trapped...
+What is going on here?
+...they all arrived...
+...but now can't leave...
+...they turned mad...
+...since this place is void...
+Why can't they leave?
+...they are trapped...
+...inside their own imagination...
+...either manipulated...
+...lost...
+...caged...
+...or mad...
+...lost...
+...caged...
+Is there a way to free them?
+...no hope for those remaining too long...
+How did they arrive?
+...through the portal...
+...just like you...
+What can you tell me about this place?
+What can you tell me about this plane?
+...it is the void...
+...not created for mortals like you...
+...but they keep coming...
+...and coming...
+Is there a way to leave?
+...there is no hope for them...
+...since they are here too long...
+...but you are still free...
+...so there is hope...
+How can I leave this plane?
+...i can't see into the core...
+...but there must be salvation...
+And how can I get into the core?
+...the creature's most valuable servants...
+...are those allowed to enter...
+...halem knows about it best...
+...since he sacrificed everything to him...
+So what's the deal with the coin?
+Who are you?
+...i am the desperation...
+...the torment's summation...
+...i am "them"...
+Them?
+I don't understand a single word...
+...he calls for them...
+...they come...
+...stay...
+...and die...
+...all the remains...
+...left by him...
+I'll come back later.
+
+
+--Nero--
+(off)
+...I want him to...
+...why not let him...
+...all I want!
+...no...
+...hmmm...
+...probably a good idea...
+...twinkle, twinkle...
+
+(conversation)
+I don't want to fly!
+Drop me! Drop me to the ground!
+And down and down and down I'll go!
+What's the trouble with you?
+Don't need my arms, don't need my legs! Cut them off! Cut them off!
+And what's the trouble with your arms and legs?
+They block! I order them to jump! But they disagree!
+Why do you want to jump?
+See the glitter? I want to go there! Down there!
+What's so special about the glitter?
+It talks to me. And sometimes it... whispers... in my dreams...
+Does it?
+I want to embrace this gorgeous voice. So wonderful!
+What does it say?
+I don't know. Nobody does. But it orders me to find out.
+Your legs and arms block?
+They don't want me to go down. Scared and coward, that's what they are.

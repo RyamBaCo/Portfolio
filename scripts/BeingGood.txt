@@ -1,0 +1,453 @@
+Being Good
+
+story design
+you are the hero. recently graduated at the academy of tear-avoiders. for becoming a fairy godmother you need to fulfill a mission.
+"avoid the tears, burst their fears, make them smile all the while!"
+you receive
+	- pendular (curing twisted minds)
+	- pixie dust (transfer parts of your soul)
+if there's somebody crying you need to find the reasons and bring them joy.
+people at the tear-avoider-academy hate mother hulda because of her serious snow-addiction - she's always confusing the machine of tear-checking
+graduation -> alert -> mother hulda confusing the tear-machine -> chase away mother hulda -> pigs
+ 
+pigs in village are feeling uncomfortable, because there are houses which doesn't fit to them, they want the wolf to blow them down
+
+- wolf is traumatized, because some ugly goats filled his stomach with stones (pendular)
+- he's full of snow, because of mother hulda
+- wolf is a smoker, so he can't blow down anything (pixie dust)
+
+when done pigs are surrounding wolf -> trap!
+girdle "Seven at one stroke" -> seven houses -> free
+pigs got cursed 
+
+Areas
+Academy
+Swamp
+Cave
+Wolf's Mind
+
+Intro
+
+Once upon a time there was an young student named <FullName>.
+<He/She> joined the academy of tear-avoiders and tried hard to become a fairy godmother.
+After years of hard work <FirstName> finally managed to pass the last exam... 
+
+conv - master1
+<FirstName>, we are very proud to announce that you are the only student who passed the last exam at the academy of tear-avoiders!
+master2
+Congratulations! You're the only one who was able to pass all the tests for becoming a tear-avoider!
+Now you only need to accomplish a single mission where to prove that all the years of hard work weren't a senseless waste of time. And all that for fulfilling a student's greatest wish: Becoming a fairy godmother!
+master1
+Never forget: Fairy godmother is the job of the future! A lot of employers are seeking for talented personal.
+master2 
+And since there are still so few fairy godmothers out there you are looking ahead a glorious future!
+Beautiful dresses! A lot of traveling! All-in insurance! A diversified number of tasks!
+master1
+But before sending you on the last mission raise your hand an...
+voice
+CRY-ALERT! CRY-ALERT! CRY-ALERT! CRY-ALERT! 
+master1
+Straight to the Tear-Machine!
+master2
+To the Tear-machine!
+
+master1
+What's the matter, Tear-Machine?
+tear-machine
+Hello buddies! I recently encountered terrible storms of wetness! Somebody must be very unhappy!
+master1 
+Tear-machine, give us the coordinates of the suspected object spreading wetness!
+tear-machine
+Alright mates! Calculating coordinates... please wait...
+...please wait...
+...calculation 1 % finished...
+...please wait...
+...calculation 5 % finished...
+master2
+The lame processor is driving me nuts!
+master1
+Yeah, remind me to upgrade our machines!
+tear-machine
+Hey, hey, friends! There's no need to vituperate my qualifications! All I want is the most precise result and for achieving this I have to spend some time on verifying the valu...
+master2
+Arrrrr! Just shut up and do what you're supposed to do!
+tear-machine
+Alright, friends!
+...calculation 56 % finished...
+...please wait...
+master1
+I heard that Tear-Machine 2.0 should be ten times faster!
+master2
+Really? Another reason to scrap this piece of crap!
+tear-machine
+...calculation 62... uh-oh... I meant: finished! Calculation finished!
+master2
+Finally!
+master1
+Tear-machine, give us the coordinates!
+tear-machine
+Of course, pals! It's about... well... somewhere between 234, 12, 45 and 2543, 21, 4!
+master1
+234-2534, that's somewhere in the buidling!
+master2
+12-21, that's somewhere in this room!
+master1
+45-4, that's somewhere in this cupboard!
+master2
+Let's have a look!
+
+master1
+What the... Mother Hulda! Not you again!
+master2
+Can't you spread your snow somewhere else? We are a clean house!
+master1
+All the wetness is confusing the Tear-Machine! Get out of here!
+hulda
+Wanna have some snow?
+master1
+NO! NO! NO! JUST LEAVE!
+hulda
+And you, kid? Some snow? Good quality, hardly adultered!
+Would be great!
+No, thank you.
+master2
+<HE/SHE> DOESN'T NEED ANYTHING OF YOUR STUFF! LEAVE!
+hulda
+Okay, okay, no reason for being rude!
+
+master1
+Alright... where did we stop? Oh... the vow-thingie...
+<FullName>! Raise your hand and repeat what I say:
+"Avoid the tears"
+"Burst their fears" 
+"Make them smile all the while"
+And now take your tools! 
+First of all the pendular! You can use it to cure the twisted minds of our dear customers!
+And of course some pixie dust! Use it to transfer parts of your soul, parts of your joy into our poor customer!
+Now swear that you won't abuse the instrument's powers and only use them when absolutely necessary!
+I swear that I will use my instruments wisely.
+I will totally abuse all of the instrument's powers and spread vicious and bad influences all over the world!
+Sounds like fun. We always like some individual workers!
+But...
+Granted. 
+And now to your miss...
+voice
+CRY-ALERT! CRY-ALERT! CRY-ALERT! CRY-ALERT!
+master2
+Not again!
+master1
+Tear-machine, is this an incident involving snow?
+tear-machine
+No, buddies! Now it's a real crying!
+master2
+Where does it come from?
+tear-machine
+I have got some good... I mean: sad news! I have no idea what this place is about but have already calculated its coordinates! I can immediately teleport anybody of you to its origin!
+master2
+An unknown origin? Hmmm... last time I joined such a mission everything turned out pretty nasty. What fun these little monsters had while torturing me!
+master1
+The Tear-Machine said "unknown origin" - how should we know that you were travelling to the "Island of Pain" and bring joy to these little cannibals? That's why I never attend missions to unknown targets!
+master2
+What fun they had while eating parts of my feet and hair... I'll never attend such missions again!  
+master1
+Now... hmmm... Due to lack of alternatives I guess the new mission would be a good experience for our greenhorn, or what do you think?
+master2
+Aye! Excellent plan! We should immediately teleport <him/her> there!
+master1
+Alright! You, new one, ready to travel to the source of crying and bring joy and happiness into the poor victim's lifes?
+Of course!
+master2
+He's ready! 
+master1
+Then let's teleport <him/her> there now! When the crying falls silent <he/she> has fulfilled his mission and is ready to become a fairy godmother!
+Let's go!
+But... 
+I'm not sure...
+master2
+Isn't it nice? <He/She> isn't sure if <he/she> should bring more joy or more happiness to our customers!
+Listen: It's all up to you! Creative freedom is one of our job's attributes! 
+Look, I really don't know...
+Isn't it nice? <He/She> doesn't know if <he/she> should bring more joy or more happiness to our customers!
+
+Pigs
+
+The pig is too sad to speak.
+The pig is looking away and then again looking at you before starting crying again.
+The pig's sadness is confusing you.
+You can't think of anything more sad than this pig.
+The pig is crying all the time.
+
+conv - mayor
+What a mess it is!
+All the crying!
+Who will dry that?
+
+I locked all the doors! How is it possible that you entered our swamp?
+I just graduated at the academy of tear-avoiders and I'm here to fulfill my final mission.
+And what is your final mission?
+I want you to stop crying and bring joy and happiness into your little town!
+What a nice offer of you, but I fear you won't be a great help for us. We are eagerly waiting for the arrival of the wolf!
+I want you to stop crying by simply destroying you all!
+Why don't you let the wolf do this work? We are eagerly waiting for his arrival!
+I just fell down from heaven.
+Hahaha! Since nobody of us noticed the noise of someone falling down you must be lying!
+Didn't you notice the secret passage?
+Hahaha! As the mayor I gave orders to lock all secret passages!
+
+Why are you waiting for the arrival of a wolf?
+We ordered him to blow down all the houses, but he should have arrived days ago to complete his mission! I hate incompetent business partners!
+
+Why do you want to destroy all the houses?
+Just look around! What do you notice?
+Since there are so many talking pigs... a serious case of drug abuse?
+A bunch of crying pigs... as a result of serious drug abuse?
+Me losing my mind when talking to pigs?
+A swamp?
+Don't you notice all the sadness, all the torment we have to deal with?
+We aren't surrounded with water but with the result of hours of crying!
+You mean you are flooding the swamp with your own tears?
+The Tear-Machine *vaguely* noticed something...
+We're all unhappy!
+Look, I've got enough troubles to deal with...
+But we're all unhappy!
+Since somebody built up these houses we all feel like being a <race>!
+I love being a <race>! So what's so bad about feeling like being one?
+That's hard to descripe, just let's try it that way... 
+Do *we* look like pigs?
+Think so...
+Yeah, like talking pigs...
+Do *you* look like a pig?
+Not really.
+As a result of the academy's poor sanitary arrangements I only smell like one...
+Do *you* feel like being a pig?
+Nope.
+Let me introduce the non-existent sanitary arrangements of the academy again...
+Do *we* feel like being pigs?
+Dunno. No?
+I guess you should...
+Right! Got the point?
+Pretty much, yes. You look like pigs but currently don't feel like being pigs.
+Exactly! Now you know a lot about the root of our misery! And now?
+Not really. I fear you asked too many questions about pigs.
+Oh... just forget about it... *sigh*
+Once again: We look like pigs but feel like <races> because of these ugly houses!
+
+What if I destroy all the houses? Will you feel better then?
+Since they can only be destroyed by being blown down only the wolf can do that.
+You'll definitely stop crying when I kill you all!
+You can't kill us, because you aren't trained in pig-killing. Additionally our Plot-Flag is set to true. Only the wolf could attack us!
+There's a wolf somewhere?
+Sure there is! He's the CEO of "Wolf Destructions Inc.". You can find his company when walking towards the cave in east.
+
+Why didn't you look after the wolf for yourself?
+Just look at me! I can't attend a meeting when looking like a picture of misery!
+What if I'd take a look after the wolf?
+Would be great if you could convince him to blow down our town!
+There are still a few questions left...
+I'll look after the wolf then.
+Thanks a lot for offering your support! Take the key to leave our town through the door in east, but please keep them closed. I don't want that anybody notices us suffering like *that*!
+
+Cave "Wolf Destructions Inc."
+
+"Wolf Destructions Inc. - Blowing the house near of you!"
+"Entrance only with reservation!"
+
+"Fed up with your neighbor? Call Wolf Destructions Inc. and all your troubles will be blown away!"
+"Wolf Destructions Inc. is #1 supporter of wind power!"
+"Rent a villain - Call Wolf Destructions Inc.!"
+"Wolf Destructions Inc. - Official sponsor of "A Corpse, A Vote"!"
+
+"Ring the bell"
+
+conv - wolf
+"Owwwww... noooooo! You cruel goats! What are you doing here?"
+"I swear I never touched them!"
+"Nooo! Not the needle!"
+"Keep away from the water, keep away from the water!"
+"Bwohohohohoho, I'm FAAAAAT!!!"
+
+The wolf is lying around and talking senseless stuff. Due to your education you encounter two cases that might be responsible for that: 
+Either he's working for the Austrian Football Association or he's traumatized and talking in delirium.
+Fortunately you learned how to handle such situations. You can try to use your pendular to cure his twisted mind.
+Use pendular.
+You are now traveling into the past, the source of the wolf's sufferings...
+Leave.
+
+HAHAHAHAHAHAHAHAHAHAHAHA
+
+"Go now and look for some big stones."
+"We will fill the godless beast's stomach with them while he is still asleep."
+
+HAHAHAHAHAHAHAHAHAHAHAHA
+
+(while walking towards water)
+"What rumbles and tumbles,
+Inside of me.
+I thought it was kids,
+But it's stones that they be."
+
+HAHAHAHAHAHAHAHAHAHAHAHA
+
+You try to use all of your experience and focus on the wolf's mind to fight his demons.
+...and succeed.
+
+(kill all 7 goats + mother) -> after dead replaced by stones...
+
+I... I... I'm feeling...
+...have no clue how I feel... hmmmm...
+Hey! You there! Did you notice anything special?
+Hmmm... only your big ears!
+All the better to hear you with.
+Anything else that catches your eye?
+What about your big eyes?
+All the better to see you with.
+Wow! Big hands!
+All the better to grab you with!
+What about your horribly big mouth?
+All the better to eat you with!
+Arrr... I'm hungry!
+Will you eat me?
+Please don't eat me, I'll do anything you want!
+What? I guess you're reading far too much books. I'm a successful businessman, not a barbaric carnivore!
+Apropos business: I have an important assignment to fulfill!
+So I'm pretty busy for now. Take my card, we can talk later on!
+All the best, poor clueless creature...
+
+Cave -> Pigs
+
+conv - mother hulda
+
+before wolf-stuff...
+Snow! Snow! Snow!
+The trees need snow!
+The gate needs snow!
+The mushrooms need snow!
+
+wolf-stuff...
+Poor wolf! Here is some snow!
+Snow for the wolf!
+Snow! Snow! Snow!
+
+<race>? <race> needs snow!
+Hello?
+Mother Hulda is much too immersed in her business to take notice of you.
+Would you please stop whitening the wolf?
+Mother Hulda doesn't react. You need to find a different way to attract her attention. Maybe with the help of your instruments?
+Use pendular
+You try to use your pendular on Mother Hulda, but it doesn't work. Her mind is working as its supposed to so there's no possibility to cure something. 
+Use pixie dust
+You successfully transfer parts of your soul into Mother Hulda's body. Now it would be a good idea to move her somewhere inside where she can't let it snow.
+Leave
+Keep on doing what you're doing.
+
+conv - wolf
+Not yet. Business to do.
+
+attempt #1
+Open the door, dear pigs, the wolf is here, and has brought some wind to blow in!
+We will not open the door, you are not the wolf. He has a rough, gray fur, but your fur is white and clean!
+
+You don't let me in because of the color of my fur? You're all racists!
+Why don't you like that white?
+This part was not mentioned in the contract!
+
+The mayor told us that wolves only have gray fur! Forget about it!
+We only open the gates for wolves with grav fur!
+No, no, no! Your fur isn't gray!
+
+Not yet! Business to do!
+Should I help you entering the swamp?
+How would you do that?
+Didn't you notice Mother Hulda whitening you?
+Of course! But what should I do?
+Why don't you eat her?
+Look, I already told you that I'm a successful businessman now!
+I can't eat anybody after... after... after the experience with these... these... these goats...
+Use pendular on wolf and try to cure his fear of goats.
+After hours of hard work you were finally able to find the root of his fears...
+Right after finishing your therapy the wolf immediately walks towards Mother Hulda and...
+<<censored>>
+Use pixie dust, transform parts of your soul into the wolf and eat Mother Hulda by yourself. 
+I'll look for a way to chase her away!
+That would be pretty nice of you, kid!
+Nevermind.
+
+<<censored>>
+Hello wolf! Want some sno...
+GRRRRRRRRRRR
+AAAAAAAHHHHHHH
+*snap*
+Haha! 
+*snap*
+Hahaha! Stop doing that with your teeth! It tickles!
+*bite*
+AAAAAAAAAAAAAAAAAHHH!!! How should I explain that to my insurance?
+*rip*
+Not my arm! Not my arm!
+*smack*
+Look what you've done! All the blood! What a mess!
+*bite*
+Great! Now my vital parts are lying on the street! Who will clean up the mess?
+*smack* *rip*
+Don't care about this irrational mass of violence! As long as nobody is nude we won't face any troubles with an US-release!
+*bite* *smack*
+My god! You're nude! Ladies and gentlemen, the wolf is nude! Now I'm seriously concerned!
+*rip* *bite* *smack* *bite* *bite* *smack* *smack* *smack* *bite*
+Silence
+
+conv - mayor
+Did you talk to the wolf yet?
+He seems to suffer from serious mental troubles!
+Then stop staring into space and do something against it!
+The wolf is standing right in front of your gates! Why don't you open them for him?
+It's not the wolf! He has gray fur!
+His fur isn't gray because Mother Hulda whitens his fur with snow!
+That's not my business. As long as he has no gray fur we won't open the gates for him!
+I fear he has lost his breath!
+Well these are his troubles! He has a contract to fulfill!
+
+attempt #2
+Open the door, dear pigs, the wolf is here, and has brought some wind to blow in!
+Why should we? When you are the wolf you should be able to blow it up by yourself!
+Alright, then...
+
+I'll huff and puff!
+I'll huff and puff once again!
+Another try for huff and puff!
+Pheeeee...
+Pppphhh...
+Pheee...
+*cough* *cough* *cough*
+
+I... I... I can't blow down things any longer!
+But why? Aren't you a professional?
+Of course! Of course! But I... these troubles...
+Which troubles?
+Well... you need to understand that I had a hard time right after the goat-assault...
+I tried to handle my past with the help of my friends alcohol and cigarettes. Unfortunately my lung... suffered.
+I fear it will take years till my breath recovers from my destructive lifestyle...
+Should I help you fulfilling your job?
+How will you do that?
+Use pixie dust, transform parts of your soul into the wolf and blow down the gates.
+Why don't you walk through the secret entrance behind the river?
+After the goat-experience I won't enter water any longer!
+Farewell, wolf.
+
+Oh, wolf! Will you finally blow down our houses to bring us joy again?
+Of course!
+I prefer killing all of you!
+
+(after blow-down)
+He blew down seven houses...
+...at one stroke!
+Hooray!
+
+So the pigs felt as pigs again, and they lived for a long time afterwards, happy and contented.
+
+After the wolf slaughtered all the pigs they weren't able to be unhappy any longer. Even the wolf was satisfied to overcome his traumatic goat-experiences and find his way back to a cruel, unrepentant monster.
+He kept on killing and destructing innocent lifes for a long time afterwards, happy and contented.
+
+And <name>? <name> became an enormous successful and well known fairy godmother...
+...even so popular that <his/her> doings aroused the attention of two know well known German professors...
+
+My tale is done, there runs a mouse, whosoever catches it, may make himself a big fur cap out of it.

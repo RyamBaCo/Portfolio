@@ -77,11 +77,21 @@ $(function()
             .on("enter", function (e) {
                 $.loadPage(4, '#324829');
             });
+        var scene4 = new ScrollScene({triggerElement: "#section4", duration: getWindowHeight})
+            .addTo(controller)
+            .on("enter", function (e) {
+                $.loadPage(5, '#66470b');
+            });
+        var scene5 = new ScrollScene({triggerElement: "#section5", duration: getWindowHeight})
+            .addTo(controller)
+            .on("enter", function (e) {
+                $.loadPage(6, '#c69a21');
+            });
     });
 
     $.loadPage = function(currentPage, fillColor)
     {
-        for(page = 1; page <= 4; ++page) {
+        for(page = 1; page <= 6; ++page) {
             if(currentPage == page) {
                 $('#letterCanvas' + page).css("display", "inline");
                 $('#letterCanvas' + page + 'Alt').css("display", "none");

@@ -191,7 +191,6 @@
 		// Open a Slidebar
 		function open(side) {
 			$("body").css("overflow-x", "hidden");
-			$(".button-rollover span").css("background-image", "none");
 			// Check to see if opposite Slidebar is open.
 			if (side === 'left' && $left && rightActive || side === 'right' && $right && leftActive) { // It's open, close it, then continue.
 				close();
@@ -230,7 +229,6 @@
 			
 				setTimeout(function() { // Wait for closing animation to finish.
 					$("body").css("overflow-x", "auto");
-					$(".button-rollover span").css("background-image", "");
 					$('html').removeClass('sb-active sb-active-left sb-active-right'); // Remove active classes.
 					if ($left) $left.removeClass('sb-active');
 					if ($right) $right.removeClass('sb-active');
