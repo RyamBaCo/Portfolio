@@ -10,6 +10,7 @@
     <script type="text/javascript" src="jquery.scrollmagic.min.js"></script>
     <script type="text/javascript" src="jquery.bxslider.min.js"></script>
     <script type="text/javascript" src="lightbox.min.js"></script>
+    <script type="text/javascript" src="queryloader2.min.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="slidebars/slidebars.css">
     <link rel="stylesheet" href="lightbox.css">
@@ -18,8 +19,8 @@
   <body>
 
     <div id="sb-site">
-      <a href="#" class="sb-toggle-left button-rollover"><span>Rollover</span></a>
       <div id="siteWrapper">
+        <a href="#" class="sb-toggle-left button-rollover"></a>
         <div class="section" id="section0">
           <div class="siteEntry">
             <canvas id="letterCanvas1" width="900" height="380">
@@ -37,7 +38,7 @@
               <div class="meEntry"><p class="meColumnLeft">2012</p> <p class="meColumnRight">Android Developer Intern</p><p class="meColumnRight clear"><a href="http://www.sonydadc.com/" target="_blank">Sony DADC</a> (Anif, Austria)</p></div>
               <div class="meEntry"><p class="meColumnLeft">2011</p> <p class="meColumnRight">Software Developer Intern</p><p class="meColumnRight clear"><a href="http://metaversum.com/" target="_blank">Metaversum</a> (Berlin, Germany)</p></div>
               <div class="meEntry"><p class="meColumnLeft">2005-2009</p> <p class="meColumnRight">Software Developer</p><p class="meColumnRight clear"><a href="http://www.tab.at/" target="_blank">TAB-Austria</a> (Ansfelden, Austria)</p></div>
-              <div class="meEntry"><p class="meColumnLeft">2004-2005</p> <p class="meColumnRight">Compulsary Paid Community Service</p><p class="meColumnRight clear"><a href="http://www.lebenshilfe.at/" target="_blank">Lebenshilfe</a> (Linz, Austria)</p></div>
+              <div class="meEntry"><p class="meColumnLeft">2004-2005</p> <p class="meColumnRight">Compulsory Paid Community Service</p><p class="meColumnRight clear"><a href="http://www.lebenshilfe.at/" target="_blank">Lebenshilfe</a> (Linz, Austria)</p></div>
             </div>
             <div class="centeredColumnMe">
               <h1>Education</h1>
@@ -510,6 +511,17 @@
     <script src='main.js'></script>
     <script src="slidebars/slidebars.js"></script>
     <script>
+      window.addEventListener('DOMContentLoaded', function() {
+        new QueryLoader2(document.querySelector("body"), {
+          barColor: "#efefef",
+          backgroundColor: "#111",
+          percentage: true,
+          barHeight: 1,
+          minimumTime: 200,
+          fadeOutTime: 1000
+        });
+      });
+
       (function($) {
         var lastMenuItem = "";
         $(document).ready(function() {

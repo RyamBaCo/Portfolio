@@ -303,7 +303,7 @@
 		});
 
 		// Close Slidebar via site
-		$site.on('touchend click', function(event) {
+		$('#siteWrapper').on('touchend click', function(event) {
 			if ((leftActive || rightActive)) { // If settings permit closing by site and left or right Slidebar is open.
 				eventHandler(event, $(this)); // Handle the event.
 				close(); // Close it.
