@@ -10,7 +10,6 @@
     <script type="text/javascript" src="jquery.scrollmagic.min.js"></script>
     <script type="text/javascript" src="jquery.bxslider.min.js"></script>
     <script type="text/javascript" src="lightbox.min.js"></script>
-    <script type="text/javascript" src="queryloader2.min.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="slidebars/slidebars.css">
     <link rel="stylesheet" href="lightbox.css">
@@ -511,17 +510,6 @@
     <script src='main.js'></script>
     <script src="slidebars/slidebars.js"></script>
     <script>
-      window.addEventListener('DOMContentLoaded', function() {
-        new QueryLoader2(document.querySelector("body"), {
-          barColor: "#efefef",
-          backgroundColor: "#111",
-          percentage: true,
-          barHeight: 1,
-          minimumTime: 200,
-          fadeOutTime: 1000
-        });
-      });
-
       (function($) {
         var lastMenuItem = "";
         $(document).ready(function() {
