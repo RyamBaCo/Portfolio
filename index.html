@@ -8,10 +8,12 @@
     <script type="text/javascript" src="PhysicEntities.js"></script>
     <script type="text/javascript" src="jquery-1.11.2.min.js"></script>
     <script type="text/javascript" src="jquery.scrollmagic.min.js"></script>
-    <script type="text/javascript" src="jquery.bxslider.min.js"></script>
     <script type="text/javascript" src="lightbox.min.js"></script>
+    <script type="text/javascript" src="jquery.lazyload.min.js"></script>
+    <script type="text/javascript" src="jquery.flexslider-min.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="slidebars/slidebars.css">
+    <link rel="stylesheet" href="flexslider.css">
     <link rel="stylesheet" href="lightbox.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -43,7 +45,7 @@
             </div>
             <div class="centeredColumnMe">
               <h1>Education</h1>
-              <div class="meEntry"><p class="meColumnLeft">2012-present</p> <p class="meColumnRight"><a href="http://www.fh-salzburg.ac.at/" target="_blank">Salzburg University of Applied Sciences</a></p><p class="meColumnRight clear">Master of Science expected in February 2015</p></div>
+              <div class="meEntry"><p class="meColumnLeft">2012-2015</p> <p class="meColumnRight"><a href="http://www.fh-salzburg.ac.at/" target="_blank">Salzburg University of Applied Sciences</a></p><p class="meColumnRight clear">Master of Science in Engineering</p></div>
               <div class="meEntry"><p class="meColumnLeft">2013</p> <p class="meColumnRight"><a href="http://www.ajou.ac.kr/" target="_blank">Ajou University</a> (Suwon, South Korea)</p><p class="meColumnRight clear">Exchange Semester</p></div>
               <div class="meEntry"><p class="meColumnLeft">2009-2012</p> <p class="meColumnRight"><a href="http://www.fh-salzburg.ac.at/" target="_blank">Salzburg University of Applied Sciences</a></p><p class="meColumnRight clear">Bachelor of Science in Engineering</p></div>
               <div class="meEntry"><p class="meColumnLeft">1999-2004</p> <p class="meColumnRight"><a href="https://www.htl-leonding.at/" target="_blank">Higher Technical College of Informatics</a></p><p class="meColumnRight clear">Equivalent to A levels/high school diploma</p></div>
@@ -74,7 +76,7 @@
           <div class="siteEntry">
             <div class="borderLine"></div>
             <div class="entryHeading" id="simetry">
-              <div class="centeredColumnLogo"><img src="img/simetryLogo.png" alt="Simetry"/></div>
+              <div class="centeredColumnLogo"><img class="lazy" data-original="img/simetryLogo.png" alt="Simetry"/></div>
               <div class="centeredColumnTrailer"><iframe width="560" height="315" src="//www.youtube.com/embed/V5GbtuRxy5Q" frameborder="0" allowfullscreen></iframe></div>
             </div>
             <div class="details">
@@ -84,22 +86,22 @@
               <div class="detailLine">Responsibilities:<br/>Software Architecture (Programming Lead)<br/>Tool Programmer (Design and Implementation of a Level Editor)<br/>Level Items and Ingame Events (Implementation and Synchronization Between Game and Editor)</div>
               <div class="detailLine">In One Sentence:<br/>Simetry is a 2.5D platformer, where the level consists of quads and triangles the player can harvest and use to recreate new elements for solving puzzles or reaching new areas.</div>
             </div>
-            <div class="images">
-              <ul class="bxslider">
-                <li><img src="img/simetryScreenshot01.jpg" title=""/></li>
-                <li><img src="img/simetryScreenshot02.jpg" title=""/></li>
-                <li><img src="img/simetryScreenshot03.jpg" title="" /></li>
-                <li><img src="img/simetryScreenshot04.jpg" title="" /></li>
-                <li><img src="img/simetryScreenshot05.jpg" title="" /></li>
-                <li><img src="img/simetryScreenshot06.jpg" title="" /></li>
-                <li><img src="img/simetryScreenshot07.jpg" title="" /></li>
+            <div class="images flexslider">
+              <ul class="slides slidesSimetry">
+                <li><img src="img/simetryScreenshot01.jpg"/></li>
+                <li><img class="lazy" data-src="img/simetryScreenshot02.jpg"/></li>
+                <li><img class="lazy" data-src="img/simetryScreenshot03.jpg"/></li>
+                <li><img class="lazy" data-src="img/simetryScreenshot04.jpg"/></li>
+                <li><img class="lazy" data-src="img/simetryScreenshot05.jpg"/></li>
+                <li><img class="lazy" data-src="img/simetryScreenshot06.jpg"/></li>
+                <li><img class="lazy" data-src="img/simetryScreenshot07.jpg"/></li>
               </ul>
             </div>
           </div>
           <div class="siteEntry">
             <div class="borderLine"></div>
             <div class="entryHeading" id="balloonQuest">
-              <div class="centeredColumnLogo"><a href="http://balloonquest.at/" target="_blank"><img src="img/balloonLogo.png" alt="The Balloon Quest"/></a></div>
+              <div class="centeredColumnLogo"><a href="http://balloonquest.at/" target="_blank"><img class="lazy" data-original="img/balloonLogo.png" alt="The Balloon Quest"/></a></div>
               <div class="centeredColumnTrailer"><iframe src="//player.vimeo.com/video/45778439?byline=0&amp;portrait=0" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>
             </div>
             <div class="details">
@@ -110,24 +112,24 @@
               <div class="detailLine">Responsibilities:<br/>Character Movement<br/>Event System for Cutscenes and Main Menu<br/>Organizing Storage of Game Data<br/>Software Engineering and Refactoring</div>
               <div class="detailLine">In One Sentence:<br/>The Balloon Quest is a platformer, which revolves around the development of a boy and his sister, who live through adventures together and have to learn how to cooperate as they are diving further and further into their own fantasy world.</div>
             </div>
-            <div class="images">
-              <ul class="bxslider">
-                <li><img src="img/TheBalloonQuest_Screenshot_01.jpg" title=""/></li>
-                <li><img src="img/TheBalloonQuest_Screenshot_02.jpg" title=""/></li>
-                <li><img src="img/TheBalloonQuest_Screenshot_03.jpg" title=""/></li>
-                <li><img src="img/TheBalloonQuest_Screenshot_04.jpg" title=""/></li>
-                <li><img src="img/TheBalloonQuest_Screenshot_05.jpg" title=""/></li>
-                <li><img src="img/TheBalloonQuest_Screenshot_06.jpg" title=""/></li>
-                <li><img src="img/TheBalloonQuest_Screenshot_07.jpg" title=""/></li>
-                <li><img src="img/TheBalloonQuest_Screenshot_08.jpg" title=""/></li>
-                <li><img src="img/TheBalloonQuest_Screenshot_09.jpg" title=""/></li>
+            <div class="images flexslider">
+              <ul class="slides slidesBalloon">
+                <li><img src="img/TheBalloonQuest_Screenshot_01.jpg"/></li>
+                <li><img class="lazy" data-src="img/TheBalloonQuest_Screenshot_02.jpg"/></li>
+                <li><img class="lazy" data-src="img/TheBalloonQuest_Screenshot_03.jpg"/></li>
+                <li><img class="lazy" data-src="img/TheBalloonQuest_Screenshot_04.jpg"/></li>
+                <li><img class="lazy" data-src="img/TheBalloonQuest_Screenshot_05.jpg"/></li>
+                <li><img class="lazy" data-src="img/TheBalloonQuest_Screenshot_06.jpg"/></li>
+                <li><img class="lazy" data-src="img/TheBalloonQuest_Screenshot_07.jpg"/></li>
+                <li><img class="lazy" data-src="img/TheBalloonQuest_Screenshot_08.jpg"/></li>
+                <li><img class="lazy" data-src="img/TheBalloonQuest_Screenshot_09.jpg"/></li>
               </ul>
             </div>
           </div>
           <div class="siteEntry">
             <div class="borderLine"></div>
             <div class="entryHeading" id="sidelives">
-              <div class="centeredColumnLogo"><a href="http://sidelives.at/" target="_blank"><img src="img/sidelivesLogo.png" width="250" alt="Sidelives"/></a></div>
+              <div class="centeredColumnLogo"><a href="http://sidelives.at/" target="_blank"><img class="lazy" data-original="img/sidelivesLogo.png" width="250" alt="Sidelives"/></a></div>
               <div class="centeredColumnTrailer"><iframe src="//player.vimeo.com/video/25872754?byline=0&amp;portrait=0" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>
             </div>
             <div class="details">
@@ -137,18 +139,18 @@
               <div class="detailLine">Responsibility:<br/>Implementation of the Camera Logic</div>
               <div class="detailLine">In One Sentence:<br/>Sidelives is a 3rd person game, where you fight against a dark mass called VOID while participating in a contest you're not allowed to sleep.</div>
             </div>
-            <div class="images">
-              <ul class="bxslider">
-                <li><img src="img/sidelivesScreenshot1.jpg" title=""/></li>
-                <li><img src="img/sidelivesScreenshot2.jpg" title=""/></li>
-                <li><img src="img/sidelivesScreenshot3.jpg" title=""/></li>
+            <div class="images flexslider">
+              <ul class="slides slidesSidelives">
+                <li><img src="img/sidelivesScreenshot1.jpg"/></li>
+                <li><img class="lazy" data-src="img/sidelivesScreenshot2.jpg"/></li>
+                <li><img class="lazy" data-src="img/sidelivesScreenshot3.jpg"/></li>
               </ul>
             </div>
           </div>
           <div class="siteEntry">
             <div class="borderLine"></div>
             <div class="entryHeading" id="stealthGranny">
-              <div class="centeredColumnLogo"><img src="img/grannyLogo.png" alt="Stealth Granny"/></a></div>
+              <div class="centeredColumnLogo"><img class="lazy" data-original="img/grannyLogo.png" alt="Stealth Granny"/></a></div>
               <div class="centeredColumnTrailer"><iframe src="//player.vimeo.com/video/116379883?byline=0&amp;portrait=0" width="500" height="375" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>
             </div>
             <div class="details">
@@ -176,7 +178,7 @@
           <div class="siteEntry">
             <div class="borderLine"></div>
             <div class="entryHeading" id="tab">
-              <div class="centeredColumnLogo"><a href="http://www.tab.at/" target="_blank"><img src="img/tabLogo.png" width="200" alt="TAB-Austria"/></a></div>
+              <div class="centeredColumnLogo"><a href="http://www.tab.at/" target="_blank"><img class="lazy" data-original="img/tabLogo.png" width="200" alt="TAB-Austria"/></a></div>
               <div class="centeredColumnTrailer"><iframe src="//player.vimeo.com/video/116389329?byline=0&amp;portrait=0" width="500" height="375" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>
             </div>
             <div class="details">
@@ -199,7 +201,7 @@
           <div class="siteEntry">
             <div class="borderLine"></div>
             <div class="entryHeading" id="anton">
-              <div class="centeredColumnLogo"><a href="https://www.facebook.com/ANTONausstellung/" target="_blank"><img src="img/antonLogo.jpg" alt="Anton"/></a></div>
+              <div class="centeredColumnLogo"><a href="https://www.facebook.com/ANTONausstellung/" target="_blank"><img class="lazy" data-original="img/antonLogo.jpg" alt="Anton"/></a></div>
               <div class="centeredColumnTrailer"><iframe src="//player.vimeo.com/video/116464137?byline=0&amp;portrait=0" width="500" height="275" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>
             </div>
             <div class="details">
@@ -209,11 +211,11 @@
               <div class="detailLine">Responsibilities:<br/>Implementation of an Installation using the <a href="https://www.leapmotion.com/">Leap Motion</a> Controller<br/>Concept Finding</div>
               <div class="detailLine">In Two Sentences:<br/>Anton was a multimedia installation being exhibited at <a href="http://residenzgalerie.at/" target="_blank">Residenzgalerie Salzburg</a> between July and November 2014 with the goal to use multimedia installations for delivering knowledge about the baroque era. Several projects were realized where I was responsible for the programming of an installation where the visitor can rotate a 3D scene of a projected still life painting using his or her fingers.</div>
             </div>
-            <div class="images">
-              <ul class="bxslider">
-                <li><img src="img/anton01.jpg" title=""/></li>
-                <li><img src="img/anton02.jpg" title=""/></li>
-                <li><img src="img/anton03.jpg" title=""/></li>
+            <div class="images flexslider">
+              <ul class="slides slidesAnton">
+                <li><img src="img/anton01.jpg"/></li>
+                <li><img class="lazy" data-src="img/anton02.jpg"/></li>
+                <li><img class="lazy" data-src="img/anton03.jpg"/></li>
               </ul>
             </div>
           </div>
@@ -243,7 +245,7 @@
           <div class="siteEntry">
             <div class="borderLine"></div>
             <div class="entryHeading" id="asylum">
-              <div class="centeredColumnLogo"><a href="http://users.fh-salzburg.ac.at/~fhs31469/asylum/" target="_blank"><img src="img/asylumLogo.png" width="180" alt="Asylum"/></a></div>
+              <div class="centeredColumnLogo"><a href="http://users.fh-salzburg.ac.at/~fhs31469/asylum/" target="_blank"><img class="lazy" data-original="img/asylumLogo.png" width="180" alt="Asylum"/></a></div>
               <div class="centeredColumnTrailer"><iframe src="//player.vimeo.com/video/116481908?byline=0&amp;portrait=0" width="500" height="375" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>
             </div>
             <div class="details">
@@ -255,30 +257,30 @@
               <div class="detailLine">Responsibilities:<br/>Story-, Sound- and Leveldesign<br/>Scripting</div>
               <div class="detailLine">In One Sentence:<br/>Asylum is a twisted tale about loosing the touch to reality with strong focus on sound design and bringing the Electron engine to its limits by for instance displaying strange locations with strong lighting or hacking collision meshes to create translucent walls of water.</div>
             </div>
-            <div class="images">
-              <ul class="bxslider">
-                <li><img src="img/asylum1.jpg" title=""/></li>
-                <li><img src="img/asylum2.jpg" title=""/></li>
-                <li><img src="img/asylum3.jpg" title=""/></li>
-                <li><img src="img/asylum4.jpg" title=""/></li>
-                <li><img src="img/asylum5.jpg" title=""/></li>
-                <li><img src="img/asylum6.jpg" title=""/></li>
-                <li><img src="img/asylum7.jpg" title=""/></li>
-                <li><img src="img/asylum8.jpg" title=""/></li>
-                <li><img src="img/asylum9.jpg" title=""/></li>
-                <li><img src="img/asylum10.jpg" title=""/></li>
-                <li><img src="img/asylum11.jpg" title=""/></li>
-                <li><img src="img/asylum12.jpg" title=""/></li>
-                <li><img src="img/asylum13.jpg" title=""/></li>
-                <li><img src="img/asylum14.jpg" title=""/></li>
-                <li><img src="img/asylum15.jpg" title=""/></li>
+            <div class="images flexslider">
+              <ul class="slides slidesAsylum">
+                <li><img src="img/asylum1.jpg"/></li>
+                <li><img class="lazy" data-src="img/asylum2.jpg"/></li>
+                <li><img class="lazy" data-src="img/asylum3.jpg"/></li>
+                <li><img class="lazy" data-src="img/asylum4.jpg"/></li>
+                <li><img class="lazy" data-src="img/asylum5.jpg"/></li>
+                <li><img class="lazy" data-src="img/asylum6.jpg"/></li>
+                <li><img class="lazy" data-src="img/asylum7.jpg"/></li>
+                <li><img class="lazy" data-src="img/asylum8.jpg"/></li>
+                <li><img class="lazy" data-src="img/asylum9.jpg"/></li>
+                <li><img class="lazy" data-src="img/asylum10.jpg"/></li>
+                <li><img class="lazy" data-src="img/asylum11.jpg"/></li>
+                <li><img class="lazy" data-src="img/asylum12.jpg"/></li>
+                <li><img class="lazy" data-src="img/asylum13.jpg"/></li>
+                <li><img class="lazy" data-src="img/asylum14.jpg"/></li>
+                <li><img class="lazy" data-src="img/asylum15.jpg"/></li>
               </ul>
             </div>
           </div>
           <div class="siteEntry">
             <div class="borderLine"></div>
             <div class="entryHeading" id="beingGood">
-              <img src="img/beingGoodLogo.png" alt="Being Good"/>
+              <img class="lazy" data-original="img/beingGoodLogo.png" alt="Being Good"/>
             </div>
             <div class="details">
               <div class="detailHeader">Realized Between 03/2007 and 04/2007</div>
@@ -287,12 +289,12 @@
               <div class="detailLine">Responsibilities:<br/>Story-, Sound- and Leveldesign<br/>Scripting</div>
               <div class="detailLine">In One Sentence:<br/>Being Good was my entry for Obsidian's module contest about fairy tales (4th place out of more than 20 entries), where I used my experience gathered from Asylum to create another unique story in a twisted - yet coherent - world.</div>
             </div>
-            <div class="images">
-              <ul class="bxslider">
-                <li><img src="img/beingGood1.jpg" title=""/></li>
-                <li><img src="img/beingGood2.jpg" title=""/></li>
-                <li><img src="img/beingGood3.jpg" title=""/></li>
-                <li><img src="img/beingGood4.jpg" title=""/></li>
+            <div class="images flexslider">
+              <ul class="slides slidesBeingGood">
+                <li><img src="img/beingGood1.jpg"/></li>
+                <li><img class="lazy" data-src="img/beingGood2.jpg"/></li>
+                <li><img class="lazy" data-src="img/beingGood3.jpg"/></li>
+                <li><img class="lazy" data-src="img/beingGood4.jpg"/></li>
               </ul>
             </div>
           </div>
@@ -330,10 +332,10 @@
               <div class="detailHeader">work in progress</div>
               <div class="detailLine">545 is a small experiment displaying images by letters, telling the story of a "thing" gaining awareness of its own existence and being scared of the emerging world of possibilites. A small prototype has been implemented using <a href="http://www.limejs.com/" target="_blank">LimeJS</a> (<a href="https://github.com/RyamBaCo/545" target="_blank">source code</a>), but I'm currently looking for an alternative engine being able to render a high amount of fonts with high frame rates on multiple platforms.</div>
             </div>
-            <div class="images">
-              <ul class="bxslider">
-                <li><img src="img/545.jpg" title=""/></li>
-                <li><img src="img/545.png" title=""/></li>
+            <div class="images flexslider">
+              <ul class="slides slides545">
+                <li><img src="img/545.jpg"/></li>
+                <li><img class="lazy" data-src="img/545.png"5/></li>
               </ul>
             </div>
           </div>
@@ -513,8 +515,51 @@
     <script src="slidebars/slidebars.js"></script>
     <script>
       (function($) {
+
+        $(window).load(function() {
+          $('.flexslider').flexslider({
+            touch: true,
+            slideshow: false,
+            controlNav: true,
+            slideshowSpeed: 7000,
+            animationSpeed: 600,
+            initDelay: 0,
+            start: function(slider) { // Fires when the slider loads the first slide
+              var slide_count = slider.count - 1;
+
+              $(slider)
+                      .find('img.lazy:eq(0)')
+                      .each(function() {
+                        var src = $(this).attr('data-src');
+                        $(this).attr('src', src).removeAttr('data-src');
+                      });
+            },
+            before: function(slider) { // Fires asynchronously with each slider animation
+              var slides     = slider.slides,
+                      index      = slider.animatingTo,
+                      $slide     = $(slides[index]),
+                      $img       = $slide.find('img[data-src]'),
+                      current    = index,
+                      nxt_slide  = current + 1,
+                      prev_slide = current - 1;
+
+              $slide
+                      .parent()
+                      .find('img.lazy:eq(' + current + '), img.lazy:eq(' + prev_slide + '), img.lazy:eq(' + nxt_slide + ')')
+                      .each(function() {
+                        var src = $(this).attr('data-src');
+                        $(this).attr('src', src).removeAttr('data-src');
+                      });
+            }
+          });
+        });
+
         var lastMenuItem = "";
         $(document).ready(function() {
+          $("img.lazy").lazyload({
+            effect : "fadeIn"
+          });
+
           $.slidebars();
 
           $("#accordian h3").mouseenter(function(){
@@ -529,11 +574,6 @@
             if(!$(this).next().is(":visible")) {
               $(this).next().slideDown();
             }
-          });
-
-          $('.bxslider').bxSlider({
-            mode: 'fade',
-            captions: false
           });
 
           var windowHeight = $(window).innerHeight();
